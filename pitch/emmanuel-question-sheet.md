@@ -72,10 +72,10 @@ The figures in `docs/research/boy-concept-brief.md` ("10M+ Collective Digital Vi
 
 ## Part 4: send it like this
 
-Copy this into WhatsApp. It asks the five questions that block the most work and nothing else, so he can answer from his phone in two minutes. The rest of Part 1 waits for the call.
+Copy this into WhatsApp. It asks the seven questions that unblock the most work and nothing else, so he can answer from his phone in four minutes. The rest of Part 1 waits for the call.
 
 ```
-Hi Emmanuel, five quick things so I can keep building the site:
+Hi Emmanuel, seven quick things so I can keep building the site:
 
 1. Do you already have a website or a booking link you send to clients?
 2. What is the lowest price you would take for event coverage? I will put
@@ -88,6 +88,13 @@ Hi Emmanuel, five quick things so I can keep building the site:
 5. For each of those videos: which client was it for, and are they OK with
    it being public? Weddings especially, I do not want to show anyone's
    footage without their OK.
+6. About how many client and enquiry records do you keep, your phone and
+   laptop included? And roughly how many new enquiries come in a week?
+   Both feed the privacy page the site has to carry before it goes live.
+7. Of the films you would show, how many are at a church, mosque, festival
+   or family ceremony where someone's faith or where they come from shows?
+   Past 200 people on that one the data rules get stricter on us, so I would
+   rather know now than after launch.
 
 Answer in any order. Whatever you send, I log the source before it goes on
 the site, so nothing appears that you did not approve.
@@ -104,7 +111,7 @@ Do not send Part 2 or Part 3 as a wall of text. Part 2 works better as a voice n
 | Q3 RC number, base city, gear | `content/verification-log.md`, then the Registration and Equipment credential rows | C-4, C-5, FR-6, FR-7, D-1 |
 | Q4 view counts and client names | `content/verification-log.md`, then the stats decision | C-6, FR-7 |
 | Q5 WhatsApp number and reply time | `demo-dataset.md` SiteSettings, `framer/EnquiryForm.tsx` `whatsappDigits`, later the Worker variable | C-7, C-8, P-14, P-15, FR-12, FR-15 |
-| Q6 enquiry volume mix | PRD section 4 targets | X-1 baseline, possible field cuts |
+| Q6 enquiry volume mix | PRD section 4 targets, and it feeds the record count that decides the compliance tier | X-1 baseline, possible field cuts, feeds L-9 |
 | Q7 source files | `demo-dataset.md` section 7 and `video_url` per row, Part 2 rows | C-2, P-4 |
 | Q8 client permission and music | `content/verification-log.md`, then `publish_ok` per row | C-3, C-11, FR-27 |
 | Q9 bio link and DM replies | `ops/rollout-kit.md` | R-1, R-9, FR-25 |
