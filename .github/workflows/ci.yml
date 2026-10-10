@@ -1,0 +1,21 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  roadmap-and-structure:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          
+      - name: Check if ROADMAP.md is touched
+        run: |
+          CHANGED=$(git diff --name-only origin/${{ github.base_ref }}...HEAD)
+          if ! echo "$CHANGED" | grep -q "ROADMAP.md"; then
+            echo "::error::ROADMAP.md must be updated in every pull request."
+            exit 1
+          fi
