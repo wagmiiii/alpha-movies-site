@@ -60,6 +60,7 @@ Markers: (exists) is a real file today, (F-6) means created by that ROADMAP task
 │   ├── PRD.md                         (exists) what and for whom
 │   ├── ARCHITECTURE.md                (exists) design, data models, decisions
 │   ├── ARCHITECTURE_ESSENTIALS.md     (exists) short outline for agents
+│   ├── DESIGN.md                      (exists) color, type, layout, components, motion
 │   ├── spikes/
 │   │   └── framer-capability-spike.md (S-5) results of the Framer checks
 │   └── research/                      inputs that are NOT verified
@@ -68,10 +69,12 @@ Markers: (exists) is a real file today, (F-6) means created by that ROADMAP task
 │
 ├── pitch/
 │   ├── Alpha_Movies_Proposal.pptx     (exists) Canva-editable proposal deck
+│   ├── emmanuel-question-sheet.md     (exists, D-10) the client's answers, asked in the order that unblocks the most work
 │   └── pitch-script.md                (D-6) message and walkthrough script
 │
 ├── content/                           single place for words and proof
 │   ├── copy.md                        (F-8) all site copy, reviewed before it goes into Framer
+│   ├── demo-dataset.md                (exists, P-22) draft CMS rows, every client fact bracketed, with the flip-to-live steps
 │   ├── PLACEHOLDERS.md                (F-8) register of every bracketed placeholder
 │   └── verification-log.md            (F-8) claim, source, date, who verified
 │
@@ -133,7 +136,9 @@ Today the delivered files are flat. Task F-6 places them as shown.
 | docs/spikes/framer-capability-spike.md | Results of the Framer checks | S-5 | Spike results change |
 | docs/research/* | Unverified inputs, kept for reference | F-6 | Rarely. Never promote content from here without a verification-log entry |
 | pitch/* | Material for the pitch | D | The pitch changes |
+| pitch/emmanuel-question-sheet.md | The client's answers, asked in the order that unblocks the most work, plus the per-video permission table | D-10 | A question is answered, or a new one is discovered |
 | content/copy.md | Source for all site text | F-8 | Copy changes. Edit here first, then Framer |
+| content/demo-dataset.md | Draft CMS rows for SiteSettings, Projects and Credentials, every client fact bracketed, and the flip-to-live procedure | P-22 | A row gains a real value, a CMS field changes, or the demo render rule is decided |
 | content/PLACEHOLDERS.md | Every `[bracketed]` placeholder: where it is, who owns it, status | F-8 | A placeholder is added or resolved |
 | content/verification-log.md | Evidence for every shown credential or stat | F-8 | A fact is verified or withdrawn |
 | framer/README.md | How to paste components into Framer, what the owner must set, what is deliberately absent | P-12 | The component changes or a Framer limitation is discovered |
@@ -151,6 +156,7 @@ Today the delivered files are flat. Task F-6 places them as shown.
 | Current phase | ROADMAP.md header | nowhere else |
 | Site copy | content/copy.md | Framer pages (copied) |
 | Projects and credentials | Framer CMS | content/verification-log.md holds the evidence |
+| Draft CMS rows for the Phase 0 preview | content/demo-dataset.md | the Framer CMS only after that file's section 8, which is task C-11 |
 | Owner WhatsApp number | Framer SiteSettings and the Worker variable `OWNER_WHATSAPP_DIGITS` | Two places by design. Change both. Listed in the handover checklist |
 | Hard rules | docs/ARCHITECTURE_ESSENTIALS.md | AGENTS.md lists the most-broken ones and points here |
 | Decisions | docs/ARCHITECTURE.md decision log | ESSENTIALS where it is a rule |
@@ -181,5 +187,6 @@ Newest first.
 
 | Date | Who | Change | Task |
 |---|---|---|---|
+| 2026-10-10 | Agent (Qoder) | Added `content/demo-dataset.md` (draft CMS rows, all client facts bracketed) and `pitch/emmanuel-question-sheet.md`. Fixed the tree, which listed no `docs/DESIGN.md` even though that file exists and the file table already carried it | P-22, D-10 |
 | 2026-10-10 | Agent (Qoder) | First real code in the repo: `shared/whatsapp.ts` and its test, `framer/EnquiryForm.tsx` and `framer/README.md` moved from planned to exists. Added the rule that there is no build tooling, and flagged that the `assets/brand` files DESIGN.md measures are absent | P-11, P-12, P-13, F-10 |
 | 2026-10-06 | Agent (Claude) | Initial structure defined | F-5 |
