@@ -180,6 +180,7 @@ Today the delivered files are flat. Task F-6 places them as shown.
 - Do not commit: secrets, `.dev.vars`, `node_modules`, build output, Framer exports, personal data from real enquiries.
 - `docs/DESIGN.md` section 2 quotes measurements for `assets/brand/alpha-movies-logo-original.png` and `assets/brand/alpha-movies-logo.webp`. Neither the folder nor the files exist in this repo, and `assets/` is not in the tree above. Do not create it and do not repeat those measurements as fact until task F-10 adds the files here.
 - There is no build tooling in this repo. `shared/whatsapp.test.ts` runs on Node 23 or newer with `node --test`, which strips the types itself. Do not add a package.json, a test runner or a linter without first deciding it in `ARCHITECTURE.md`, because AGENTS.md requires asking before adding a dependency.
+- `pitch/Alpha_Movies_Proposal.pptx` was authored outside this toolchain, so the Presentations office engine can read it but refuses to save it (`QODER_OFFICE_PPTX_CONTENT_TYPES_INVALID`) and reports `pageGenerationSupported: false`, which means no page can be appended or replaced through that engine. Its canvas is 1280 x 1809 px, not the 1280 x 720 the generator assumes. To change deck wording: extract the one slide part, replace the string inside its single `<a:t>` run, update that entry in place with `zip`, then confirm the entry count is unchanged, that only the intended parts differ by CRC, and that a re-read shows the same geometry. Every text block on a slide is one run, so string replacement is safe.
 
 ## Structure change log
 
@@ -187,6 +188,7 @@ Newest first.
 
 | Date | Who | Change | Task |
 |---|---|---|---|
+| 2026-10-10 | Agent (Qoder) | Corrected three text runs inside `pitch/Alpha_Movies_Proposal.pptx` (slides 4 and 6) so unverified client facts read as to-confirm, and wrote down how to edit that deck, since the office engine can read but not save it | D-3, Q13 |
 | 2026-10-10 | Agent (Qoder) | Added `content/demo-dataset.md` (draft CMS rows, all client facts bracketed) and `pitch/emmanuel-question-sheet.md`. Fixed the tree, which listed no `docs/DESIGN.md` even though that file exists and the file table already carried it | P-22, D-10 |
 | 2026-10-10 | Agent (Qoder) | First real code in the repo: `shared/whatsapp.ts` and its test, `framer/EnquiryForm.tsx` and `framer/README.md` moved from planned to exists. Added the rule that there is no build tooling, and flagged that the `assets/brand` files DESIGN.md measures are absent | P-11, P-12, P-13, F-10 |
 | 2026-10-06 | Agent (Claude) | Initial structure defined | F-5 |
