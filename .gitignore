@@ -1,0 +1,8 @@
+node_modules/
+.dev.vars
+.env
+dist/
+build/
+*.zip
+IMG_*.png
+alpha-movies-site/
