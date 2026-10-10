@@ -4,6 +4,8 @@ This file is the single source of truth for all site text.
 Edit copy here first and review before pasting it into Framer.
 
 ## Global / Site Settings
+
+Values for the Phase 0 preview are drafted in `content/demo-dataset.md` section 3, bracketed. Replace a bracket here only once it has a dated line in `content/verification-log.md`, then paste it into the Framer CMS.
 - **Base City:** `[Base City]`
 - **Starting Price:** `[Starting Price]`
 - **Response Time:** `[Response Time]`
