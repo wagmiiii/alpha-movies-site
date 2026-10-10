@@ -53,6 +53,7 @@ Quick reference for agents. If this file and ARCHITECTURE.md disagree, ARCHITECT
 - Email deliverability from a new domain.
 - WhatsApp number lives in two places: SiteSettings and `OWNER_WHATSAPP_DIGITS`.
 - Airtable has no unique constraint. Check refs in code.
+- Framer plan fit: this site needs 3 CMS collections (Project, Credential, SiteSettings) and Framer's Basic tier holds 2, so the launch plan is Pro. Build on Free now, move to the client's account before go-live (decision D13, `ops/framer-setup-checklist.md`).
 
 ## Cut or parked (do not build unprompted)
 - Availability picker, BlockedDate, date_conflict.

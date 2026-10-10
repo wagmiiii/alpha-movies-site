@@ -199,8 +199,9 @@ Account ownership at launch:
 | Resend | Client, with the sending domain verified (SPF and DKIM) |
 | GA4 | Client |
 
-Handover checklist: all accounts above, the two places the WhatsApp number lives, how to rotate each secret, how to delete an enquiry on request, and a one-page owner guide to the CMS.
+Until gate G0 passes, the spike and the Phase 0 build run in a project held by the builder on the Free plan (decision D13). That project is a sandbox: no real enquiry, no client phone number, no published page, and it is never the site that goes live. `ops/framer-setup-checklist.md` section 8 is the move into the client's account.
 
+Handover checklist: all accounts above, the two places the WhatsApp number lives, how to rotate each secret, how to delete an enquiry on request, and a one-page owner guide to the CMS.
 Deploy with `wrangler deploy --env <name>`. Publishing the Framer site is manual until handover.
 
 ## 11. Observability and testing
@@ -225,7 +226,7 @@ Deploy with `wrangler deploy --env <name>`. Publishing the Framer site is manual
 
 1. Framer code components can call an external API and render the Turnstile widget in the Framer runtime, in preview and in the Instagram in-app browser. Blocks the design. Test first.
 2. Whether Framer's native form handling already meets FR-12, FR-14 and FR-18. If yes, skip the Worker.
-3. The Framer plan supports CMS and custom code at the limits needed.
+3. The Framer plan supports CMS and custom code at the limits needed. Read from Framer's own pricing page on 2026-10-10: Free gives 10 collections and 1,000 items but publishes only on a free Framer domain, Basic gives **2** collections where this site needs 3, Pro gives 10 collections, up to 40,000 items and a staging environment. That is why decision D13 launches on Pro. The page says nothing about whether code components are gated by plan, so S-1 and S-4 have to observe it rather than assume it.
 4. The free Framer domain suffix on this account (the reference site used `framer.media`).
 5. Airtable free-tier record and request limits against expected volume, and that it has no unique-field constraint.
 6. Resend sending-domain verification for the client domain, and Gmail inbox placement.
@@ -304,6 +305,7 @@ What stays because it earns its place: the verification gate, the handoff fallba
 | D10 | Every account is held by the client | 2026-10-06 |
 | D11 | Every contribution updates ROADMAP.md, and PROJECT_STRUCTURE.md when files change. CI enforces the ROADMAP part | 2026-10-06 |
 | D12 | DESIGN.md is the single source for visual values. PRD section 10 states intent only and repeats no token, so the background no longer has two owners (F-9) | 2026-10-10 |
+| D13 | Framer: build the spike and Phase 0 in a builder-owned project on the Free plan, then move it into the client's project before go-live. D10 and L-1 are not weakened: the builder project is a sandbox, never the shipped site. The launch plan is Pro, not Basic, because this site needs 3 CMS collections and Framer's Basic tier holds 2. Setup and move steps in `ops/framer-setup-checklist.md` | 2026-10-10 |
 
 ## 16. Contribution protocol
 
