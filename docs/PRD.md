@@ -187,8 +187,11 @@ Phase 0 has no ref. The Ref line is omitted when there is none.
 
 ## 10. Design direction
 
-- Pure dark background (#0A0A0A) so video thumbnails stand out.
-- Bold, clean sans-serif. Display font open (Syne is a candidate). Accent color from Boy Concept's own brand once confirmed.
+Intent only. The values themselves live in `docs/DESIGN.md`, which is the single source for every color, font and spacing number on the site (decision D12). This section does not restate a hex or a font name, and where the two disagree DESIGN.md wins and this section gets corrected in the same change.
+
+- Pure dark page, black, so video thumbnails and the logo carry the light. Value in DESIGN section 1.
+- Quiet, high-contrast body type with one distinct display face for headings. Accent drawn from Boy Concept's own brand once confirmed. Choices in DESIGN sections 3 and 4.
+- DESIGN section 4 gives the display role a serif, which supersedes the "bold, clean sans-serif" first written here. The change is real and visible, so it needs sign-off (ROADMAP F-11, and DESIGN section 13 item 4 for the Framer check).
 - Lesson from the reference site: category-tagged project cards, numbered services with chips and a named process work well. Avoid its placeholder stats, duplicated step copy and stacked autoplaying embeds.
 
 ## 11. Phases

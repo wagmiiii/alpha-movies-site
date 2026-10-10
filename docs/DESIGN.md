@@ -1,6 +1,6 @@
 # DESIGN: Alpha Movies Booking and Showcase Site
 
-Status: Draft v0.1 | Date: 2026-10-10 | Source: the supplied logo (`assets/brand/alpha-movies-logo-original.png`) | Pairs with PRD.md section 10.
+Status: Draft v0.1 | Date: 2026-10-10 | Source: the supplied logo (`assets/brand/alpha-movies-logo-original.png`) | Single source for visual values; PRD.md section 10 gives intent only.
 
 Everything visual in the site comes from here. If a value is not in this file, ask before inventing one. Colors were sampled from the logo file, not from a brand guide, so they are provisional until Emmanuel confirms the logo is current (ROADMAP D-9).
 
@@ -8,7 +8,7 @@ Everything visual in the site comes from here. If a value is not in this file, a
 
 A black screening room with gold on it. The page recedes so the work and the logo carry the light. Gold is rare and means "this matters or this is clickable". Nothing is decorated for its own sake.
 
-- Page background is black, `#000000`. This replaces the `#0A0A0A` in the earlier PRD.
+- Page background is black, `#000000`. This file holds that value; `docs/PRD.md` section 10 states intent only and no longer carries a hex (ROADMAP F-9, ARCHITECTURE decision D12).
 - Gold covers at most about 10% of any viewport. If everything is gold, nothing is.
 - Video posters and the logo are the brightest things on the page. Text and UI stay quieter.
 - Sparkle is a motif, used sparingly. The logo's own flares are the main instance.

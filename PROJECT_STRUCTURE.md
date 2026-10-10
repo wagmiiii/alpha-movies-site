@@ -160,6 +160,7 @@ Today the delivered files are flat. Task F-6 places them as shown.
 | Owner WhatsApp number | Framer SiteSettings and the Worker variable `OWNER_WHATSAPP_DIGITS` | Two places by design. Change both. Listed in the handover checklist |
 | Hard rules | docs/ARCHITECTURE_ESSENTIALS.md | AGENTS.md lists the most-broken ones and points here |
 | Decisions | docs/ARCHITECTURE.md decision log | ESSENTIALS where it is a rule |
+| Visual values (color, type, spacing) | docs/DESIGN.md sections 3, 4, 5 | the token copy inside `framer/EnquiryForm.tsx`, and nowhere else. PRD section 10 states intent only (decision D12) |
 | Secrets | Worker environment variables, `.dev.vars` locally (gitignored) | nowhere else, ever |
 | Enquiries | Airtable (Phase 1 backend) | email to owner |
 | Placeholders | content/PLACEHOLDERS.md | the places they appear |
@@ -169,6 +170,7 @@ Today the delivered files are flat. Task F-6 places them as shown.
 
 - The WhatsApp message builder is needed in the Worker and in the browser (the fallback when the API is unreachable and all of Phase 0). `shared/whatsapp.ts` is the source. A copy is inlined in `framer/EnquiryForm.tsx` with a comment `COPY OF shared/whatsapp.ts`. Framer components cannot import from this repo, so keep the copy in sync by hand and edit both in the same change.
 - Phone parsing exists as light checks in the browser and as full parsing in the Worker. The Worker is authoritative.
+- `docs/DESIGN.md` section 3 is the source for every visual value. The token object `t` in `framer/EnquiryForm.tsx` is a hand copy of the tokens that component uses, and only those, because a Framer component cannot import from this repo. Change the token in DESIGN.md first, then the copy in the component, in the same change. Nothing else may restate a token: `docs/PRD.md` section 10 deliberately carries none (decision D12).
 
 ## Directory rules
 
@@ -188,6 +190,7 @@ Newest first.
 
 | Date | Who | Change | Task |
 |---|---|---|---|
+| 2026-10-10 | Agent (Qoder) | Recorded who owns a visual value: a Where-does-X-live row and a Known duplication bullet for the token copy inside `framer/EnquiryForm.tsx`, which that file already claimed was listed here but was not. No file was added, moved or renamed | F-9 |
 | 2026-10-10 | Agent (Qoder) | Corrected three text runs inside `pitch/Alpha_Movies_Proposal.pptx` (slides 4 and 6) so unverified client facts read as to-confirm, and wrote down how to edit that deck, since the office engine can read but not save it | D-3, Q13 |
 | 2026-10-10 | Agent (Qoder) | Added `content/demo-dataset.md` (draft CMS rows, all client facts bracketed) and `pitch/emmanuel-question-sheet.md`. Fixed the tree, which listed no `docs/DESIGN.md` even though that file exists and the file table already carried it | P-22, D-10 |
 | 2026-10-10 | Agent (Qoder) | First real code in the repo: `shared/whatsapp.ts` and its test, `framer/EnquiryForm.tsx` and `framer/README.md` moved from planned to exists. Added the rule that there is no build tooling, and flagged that the `assets/brand` files DESIGN.md measures are absent | P-11, P-12, P-13, F-10 |

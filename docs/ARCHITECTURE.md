@@ -303,6 +303,7 @@ What stays because it earns its place: the verification gate, the handoff fallba
 | D9 | No IP storage, no custom event endpoint | 2026-10-06 |
 | D10 | Every account is held by the client | 2026-10-06 |
 | D11 | Every contribution updates ROADMAP.md, and PROJECT_STRUCTURE.md when files change. CI enforces the ROADMAP part | 2026-10-06 |
+| D12 | DESIGN.md is the single source for visual values. PRD section 10 states intent only and repeats no token, so the background no longer has two owners (F-9) | 2026-10-10 |
 
 ## 16. Contribution protocol
 

@@ -37,7 +37,7 @@ Recalculate on every update.
 
 | Section | Must done | Should done | Conditional |
 |---|---|---|---|
-| F Foundations | 8 of 8 | 0 of 2 | n/a |
+| F Foundations | 8 of 8 | 1 of 3 | n/a |
 | D Discovery and pitch | 1 of 8 | 2 of 2 | n/a |
 | S Framer capability spike | 0 of 5 | 0 of 0 | n/a |
 | P Phase 0 | 3 of 18 | 1 of 5 | n/a |
@@ -46,7 +46,7 @@ Recalculate on every update.
 | B Phase 1 (conditional) | n/a | n/a | 0 of 16 |
 | R Phase 1 | 0 of 10 | 0 of 0 | n/a |
 | X Post-launch | not counted | not counted | n/a |
-| **Total counted** | **12 of 64** | **3 of 10** | |
+| **Total counted** | **12 of 64** | **4 of 11** | |
 
 ## Gates
 
@@ -85,8 +85,9 @@ Priority: M is Must, S is Should, C is conditional on G1. Refs point to requirem
 | [x] | F-6 | Create the repo, scaffold folders per PROJECT_STRUCTURE.md, move docs into /docs, add README.md and .gitignore | Ademola | S | F-5 | none | M |
 | [x] | F-7 | Add PR template and a CI check that fails any PR not touching ROADMAP.md | Ademola | S | F-6 | none | M |
 | [x] | F-8 | Create skeletons for content/PLACEHOLDERS.md, content/verification-log.md and content/copy.md | Agent | S | F-6 | none | M |
-| [ ] | F-9 | Reconcile the page background: PRD section 10 says #0A0A0A, docs/DESIGN.md section 1 says #000000 and claims to replace it. One of them must change | Agent | S | none | ESSENTIALS rule on doc precedence | S |
+| [x] | F-9 | Reconcile the page background: PRD section 10 said #0A0A0A, DESIGN.md section 1 says #000000. Resolved by ownership rather than by picking a hex: DESIGN.md is the single source for visual values (ARCHITECTURE decision D12), PRD section 10 now states intent and carries no token, and the form code already used DESIGN's black | Agent | S | none | ESSENTIALS rule on doc precedence | S |
 | [ ] | F-10 | The logo files DESIGN.md section 2 measures (`assets/brand/*`) are not in the repo, and `assets/` is not in PROJECT_STRUCTURE.md. Add both, or correct the measured claims | Ademola | S | none | DESIGN 2 | S |
+| [ ] | F-11 | Sign off the display type direction. Found while reconciling F-9: PRD section 10 originally said "bold, clean sans-serif", DESIGN.md section 4 puts a serif in the display role, and that is a visible change of direction, not a token. Confirm it or correct DESIGN. DESIGN section 13 item 4 is the Framer check | Ademola | S | F-9 | DESIGN 4, 13 | S |
 
 ### D. Discovery and pitch
 
@@ -101,7 +102,7 @@ Priority: M is Must, S is Should, C is conditional on G1. Refs point to requirem
 | [ ] | D-7 | Send the pitch with the preview link and walkthrough | Ademola | S | D-6, P-20 | none | M |
 | [ ] | D-8 | Record Emmanuel's answers to the open questions in this file | Ademola | S | D-7 | PRD section 12 | M |
 | [ ] | D-9 | Confirm the supplied logo is the current official one, get a vector or flat file, and decide whether Alpha Movies or Boy Concept leads publicly | Ademola, Emmanuel | S | none | DESIGN 2, Q11, Q12 | M |
-| [x] | D-10 | Question sheet for Emmanuel: all twelve open questions in the order that unblocks the most work, the per-video permission table, and what counts as evidence for each credential | Agent | S | F-8 | PRD 12, Q1-Q12 | S |
+| [x] | D-10 | Question sheet for Emmanuel: every open question in the order that unblocks the most work (thirteen, after Q13 was added on 2026-10-10), the per-video permission table, and what counts as evidence for each credential | Agent | S | F-8 | PRD 12, Q1-Q13 | S |
 
 ### S. Framer capability spike
 
@@ -117,7 +118,7 @@ Priority: M is Must, S is Should, C is conditional on G1. Refs point to requirem
 
 | Status | ID | Task | Owner | Size | Depends on | Refs | P |
 |---|---|---|---|---|---|---|---|
-| [ ] | P-1 | Design tokens in Framer: #0A0A0A background, type pair, placeholder accent, spacing | Ademola | S | F-6 | PRD 10 | M |
+| [ ] | P-1 | Design tokens in Framer, taken from docs/DESIGN.md section 3, the type pair from section 4 and spacing from section 5. Do not copy values out of PRD section 10, it carries none | Ademola | S | F-6, F-9 | DESIGN 3, 4, 5 | M |
 | [ ] | P-2 | Page skeleton and section order: nav, hero, showreel, portfolio, credentials, services, process, FAQ, form, footer | Ademola | S | P-1 | none | M |
 | [ ] | P-3 | Hero with both CTAs | Ademola | S | P-2 | FR-1 | M |
 | [ ] | P-4 | Showreel: poster first, video created on tap | Ademola | S | P-2 | FR-2 | M |
@@ -249,6 +250,7 @@ Newest first. One line per PR or work session.
 
 | Date | Who | What | Tasks | Files |
 |---|---|---|---|---|
+| 2026-10-10 | Agent (Qoder) | Closed the design-doc ownership conflict instead of picking a hex. `docs/DESIGN.md` is now the single source for visual values (ARCHITECTURE decision D12, ESSENTIALS header line, PRD section 10 carries no token and points there). The black was never the real disagreement: PRD section 10 also said "bold, clean sans-serif" while DESIGN section 4 puts a serif in the display role, which is a visible change of direction and is not an agent's to sign off, so F-11 is added for Ademola. P-1 no longer tells anyone to read a hex out of the PRD. Fixed D-10, whose row still said twelve open questions after Q13 landed on 2026-10-10 (tracker verified at thirteen), and added the design-token copy to PROJECT_STRUCTURE Known duplication, which framer/README.md already claimed was listed there but was not. Checks run: scorecard recomputed from the tables with a parser that reads the priority column of every row (`12 of 64` Must unchanged, Should `4 of 11`, readiness still 19%), every task row re-counted to eight cells (95 rows, none malformed), no `#0A0A0A` left anywhere except `docs/research` (never read as fact) and the F-9 row that records the resolution, and every new cross-reference (D12, F-11, DESIGN 13 item 4) confirmed to exist | F-9, F-11 added, P-1, D-10 | docs/PRD.md, docs/DESIGN.md, docs/ARCHITECTURE.md, docs/ARCHITECTURE_ESSENTIALS.md, PROJECT_STRUCTURE.md, ROADMAP.md |
 | 2026-10-10 | Agent (Qoder) | Audited the pitch deck against the rule that pitch material carries no unverified facts, after the question sheet made the deck's sources checkable. Three runs on slides 4 and 6 stated client facts sourced only from `docs/research/boy-concept-brief.md`, whose own header forbids copying names into pitch material: "formerly Tue Tue Concept", `@alpha.movies_`, YouTube `@Boy-concept`. All three now read `[Confirm ...]`. Slide 6 also promised "silent hover previews", which ARCHITECTURE 9 (video created on tap) and DESIGN 8 (no autoplaying iframes) reject, and which most visitors cannot do on a phone: changed to poster-first cards. Added Q13 for the name and handle confirmation, registered the deck's own brackets in the new Pitch material section of PLACEHOLDERS.md, and recorded how to edit this deck because the Presentations office engine can read it but refuses to save it. Fixed the question sheet, where a failed edit had left Part 1 without the Q column while the answer map below it keyed on Q numbers, so the two disagreed on main. Checks run: CRC and entry-count comparison against a copy of the original deck (67 entries, only the two intended parts changed), every XML part parsed, an unzip integrity test, and a re-read through the office engine showing the new text in the same boxes with an empty audit array. Not checked: opening it in PowerPoint or Canva, which no tool here can do [Likely fine]. No invented value was added to the deck, and no C task moved | D-3 note, Q13, D-10 fix | pitch/Alpha_Movies_Proposal.pptx, pitch/emmanuel-question-sheet.md, content/PLACEHOLDERS.md, ROADMAP.md, PROJECT_STRUCTURE.md |
 | 2026-10-10 | Agent (Qoder) | Placeholder-backed content so the build stops waiting on the client. `content/demo-dataset.md`: SiteSettings, eight draft Project rows (two per FR-3 category) and four Credential rows, 31 bracketed tokens across 77 fields, every row `verified: false` and `publish_ok: false`, a DEMO badge spec, an empty-poster treatment that obeys DESIGN 9, and a seven-step flip-to-live. `pitch/emmanuel-question-sheet.md`: all twelve open questions ordered by how much they unblock, a per-video permission and music table, and what counts as evidence per claim. Declined to scrape the client's Instagram, with the reasons and the cheaper path in dataset section 7 and sheet Part 2 notes: his own channel is the source, per-project permission is his to grant, and ARCHITECTURE 3 already chose YouTube nocookie. Checks run: no em dashes in either file, every bracket in both files registered in PLACEHOLDERS.md, and the register's `[Example Placeholder]` row confirmed absent from copy.md and relabelled as an example. No C task is marked done and the Must denominator stays 64. `framer/EnquiryForm.tsx` and `shared/whatsapp.ts` were not touched, so no code was re-tested | P-22, D-10, and P-23 added | content/demo-dataset.md, pitch/emmanuel-question-sheet.md, content/PLACEHOLDERS.md, content/copy.md, ROADMAP.md, PROJECT_STRUCTURE.md |
 | 2026-10-10 | Agent (Qoder) | Phase 0 form code. WhatsApp message and wa.me builders with 18 unit tests, EnquiryForm with the PRD section 7 fields plus the P-13 rules, and Framer handoff notes. Checks run: `tsc --strict` clean, 18 unit tests green on the Node built-in runner, and 22 assertions driving the rendered form in a jsdom harness (date first, no budget field, no auto-open, digits-only link, contact rule, reference escape, copy fallback, both number-unset paths). Nothing was installed in the repo. Still not run inside Framer, which is what P-17, P-18 and S-2 are for. Added F-9, F-10, D-9, P-21 and Q11, Q12: all referenced by docs/DESIGN.md but missing from this file | P-11, P-12, P-13, P-14 partial, P-19 partial, F-9, F-10, D-9, P-21 | shared/whatsapp.ts, shared/whatsapp.test.ts, framer/EnquiryForm.tsx, framer/README.md, content/copy.md, content/PLACEHOLDERS.md, ROADMAP.md, PROJECT_STRUCTURE.md |
