@@ -126,6 +126,7 @@ Today the delivered files are flat. Task F-6 places them as shown.
 | CLAUDE.md | Claude Code specifics | exists | Claude Code workflow changes |
 | ROADMAP.md | Status and progress log | exists | Every contribution |
 | PROJECT_STRUCTURE.md | This map | exists | A file or folder is added, moved, renamed, deleted or repurposed |
+| docs/DESIGN.md | Design system tokens and styles | exists | A style token changes |
 | docs/PRD.md | Product requirements | exists | A requirement, scope item or open question changes |
 | docs/ARCHITECTURE.md | Design and decision log | exists | A technical decision changes |
 | docs/ARCHITECTURE_ESSENTIALS.md | Agent outline | exists | ARCHITECTURE.md changes a rule, endpoint or data name |
