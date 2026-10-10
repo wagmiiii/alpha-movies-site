@@ -5,11 +5,11 @@ Single source of truth for project status and for the path to 100% readiness.
 | | |
 |---|---|
 | Last updated | 2026-10-10 |
-| Current phase | Phase 0 build (P). Foundations F is complete. The form code is written; the pages around it, the spike and all of Phase 1 are not |
+| Current phase | Phase 0 build (P). Foundations F is complete. The form code is written, draft CMS content exists so the pages can be built without the client's answers, and the pages themselves, the spike and all of Phase 1 are not |
 | Readiness | 19% (12 of 64 Must tasks done) |
 | Gates passed | none |
 | Backend decision (G1) | not yet made. Worker tasks (B) are excluded from the score until G1 chooses a Worker |
-| Critical path now | D-5 then G0. Nothing in C, L, B or R can start until Emmanuel answers Q1, and the S spike needs a Framer account |
+| Critical path now | D-5 then G0. Nothing in C, L, B or R can start until Emmanuel answers Q1, and the S spike needs a Framer account. `pitch/emmanuel-question-sheet.md` Part 4 is the message to send for D-5 |
 
 ## Update rule (mandatory, applies to humans and agents)
 
@@ -38,15 +38,15 @@ Recalculate on every update.
 | Section | Must done | Should done | Conditional |
 |---|---|---|---|
 | F Foundations | 8 of 8 | 0 of 2 | n/a |
-| D Discovery and pitch | 1 of 8 | 1 of 1 | n/a |
+| D Discovery and pitch | 1 of 8 | 2 of 2 | n/a |
 | S Framer capability spike | 0 of 5 | 0 of 0 | n/a |
-| P Phase 0 | 3 of 18 | 0 of 3 | n/a |
+| P Phase 0 | 3 of 18 | 1 of 5 | n/a |
 | C Phase 1 | 0 of 11 | 0 of 0 | n/a |
 | L Phase 1 | 0 of 4 | 0 of 1 | n/a |
 | B Phase 1 (conditional) | n/a | n/a | 0 of 16 |
 | R Phase 1 | 0 of 10 | 0 of 0 | n/a |
 | X Post-launch | not counted | not counted | n/a |
-| **Total counted** | **12 of 64** | **1 of 7** | |
+| **Total counted** | **12 of 64** | **3 of 10** | |
 
 ## Gates
 
@@ -61,6 +61,8 @@ Recalculate on every update.
 ## Critical path and schedule risks
 
 - The longest delays are the client-dependent C tasks, mainly C-2, C-3 and C-5. Start asking at D-5, not after launch of the demo [Likely].
+- The build no longer waits on Emmanuel. `content/demo-dataset.md` holds bracketed draft rows for every CMS-backed section, so P-2, P-5, P-6, P-7, P-8 and P-10 can be laid out now. What still waits on him is anything a visitor could believe, which is all of C, and the pitch itself. P-23 is the one decision the dataset needs before the grid is built.
+- Videos come from Emmanuel's own YouTube channel or source files, per Q7, not from his Instagram feed. ARCHITECTURE section 3 chose YouTube nocookie, and the per-project permission and the music clearance both come from him and nobody else. See demo-dataset.md section 7.
 - The Phase 0 form code (P-11 to P-13) is written, typechecked and exercised in a DOM, but has never run inside Framer. P-17, P-18 and S-2 are the checks that can still fail it, and they need a Framer account and two phones [Certain that they need those, Likely that they will pass].
 - G1 decides whether 16 backend tasks exist. Run the S tasks early. If native forms are enough, most of the backend work disappears.
 - Phase 1 cannot start before G0. If Emmanuel declines or already has a site (Q1), re-scope the whole roadmap.
@@ -92,13 +94,14 @@ Priority: M is Must, S is Should, C is conditional on G1. Refs point to requirem
 |---|---|---|---|---|---|---|---|
 | [ ] | D-1 | Verify public facts about Boy Concept: RC on CAC search, registered name, IG and YouTube figures | Ademola | S | none | PRD Q3, Q4 | M |
 | [x] | D-2 | Pitch proposal deck generated (Canva-editable .pptx) | Agent | S | none | none | M |
-| [ ] | D-3 | Fill the proposal placeholders, import into Canva, review | Ademola | S | D-1, D-2 | none | M |
+| [ ] | D-3 | Fill the proposal placeholders, import into Canva, review | Ademola | S | D-1, D-2, D-10 | none | M |
 | [x] | D-4 | Reference site review (directorengineer.framer.media) | Agent | S | none | none | S |
-| [ ] | D-5 | Ask Emmanuel Q1, Q2 and Q6: existing site, starting price, enquiry volume | Ademola | S | none | PRD Q1, Q2, Q6 | M |
+| [ ] | D-5 | Ask Emmanuel Q1, Q2 and Q6: existing site, starting price, enquiry volume. The wording is in `pitch/emmanuel-question-sheet.md` Part 4 | Ademola | S | none | PRD Q1, Q2, Q6 | M |
 | [ ] | D-6 | Write the pitch message and walkthrough script, calling out the date-first form | Ademola | S | D-3 | none | M |
 | [ ] | D-7 | Send the pitch with the preview link and walkthrough | Ademola | S | D-6, P-20 | none | M |
 | [ ] | D-8 | Record Emmanuel's answers to the open questions in this file | Ademola | S | D-7 | PRD section 12 | M |
 | [ ] | D-9 | Confirm the supplied logo is the current official one, get a vector or flat file, and decide whether Alpha Movies or Boy Concept leads publicly | Ademola, Emmanuel | S | none | DESIGN 2, Q11, Q12 | M |
+| [x] | D-10 | Question sheet for Emmanuel: all twelve open questions in the order that unblocks the most work, the per-video permission table, and what counts as evidence for each credential | Agent | S | F-8 | PRD 12, Q1-Q12 | S |
 
 ### S. Framer capability spike
 
@@ -135,6 +138,8 @@ Priority: M is Must, S is Should, C is conditional on G1. Refs point to requirem
 | [~] | P-19 | Placeholder register complete; every demo placeholder is bracketed | Agent | S | P-5, P-8 | PRD 8 | M |
 | [ ] | P-20 | Publish the preview link (not the production domain) | Ademola | S | P-17, P-18, P-19 | none | M |
 | [ ] | P-21 | Flat one-color wordmark, favicon mark and a 1200 x 630 social image | Ademola, Agent | S | C-1, DESIGN 2 | FR-20, L-3 | S |
+| [x] | P-22 | Draft CMS rows with every client fact bracketed, so the grid, the filter, the credentials rule and the footer can be built before the answers arrive. No C task closes from it | Agent | S | F-8 | PRD 8, PRD 12 | S |
+| [ ] | P-23 | Decide how demo rows render in the preview without weakening rule 8: a filter on the preview environment, or a second Framer project holding only demo rows. Recommendation and tradeoffs in demo-dataset.md section 9 | Ademola | S | P-22 | ESSENTIALS 8, FR-26, FR-27 | S |
 
 ### G. Gates
 
@@ -243,6 +248,7 @@ Newest first. One line per PR or work session.
 
 | Date | Who | What | Tasks | Files |
 |---|---|---|---|---|
+| 2026-10-10 | Agent (Qoder) | Placeholder-backed content so the build stops waiting on the client. `content/demo-dataset.md`: SiteSettings, eight draft Project rows (two per FR-3 category) and four Credential rows, 31 bracketed tokens across 77 fields, every row `verified: false` and `publish_ok: false`, a DEMO badge spec, an empty-poster treatment that obeys DESIGN 9, and a seven-step flip-to-live. `pitch/emmanuel-question-sheet.md`: all twelve open questions ordered by how much they unblock, a per-video permission and music table, and what counts as evidence per claim. Declined to scrape the client's Instagram, with the reasons and the cheaper path in dataset section 7 and sheet Part 2 notes: his own channel is the source, per-project permission is his to grant, and ARCHITECTURE 3 already chose YouTube nocookie. Checks run: no em dashes in either file, every bracket in both files registered in PLACEHOLDERS.md, and the register's `[Example Placeholder]` row confirmed absent from copy.md and relabelled as an example. No C task is marked done and the Must denominator stays 64. `framer/EnquiryForm.tsx` and `shared/whatsapp.ts` were not touched, so no code was re-tested | P-22, D-10, and P-23 added | content/demo-dataset.md, pitch/emmanuel-question-sheet.md, content/PLACEHOLDERS.md, content/copy.md, ROADMAP.md, PROJECT_STRUCTURE.md |
 | 2026-10-10 | Agent (Qoder) | Phase 0 form code. WhatsApp message and wa.me builders with 18 unit tests, EnquiryForm with the PRD section 7 fields plus the P-13 rules, and Framer handoff notes. Checks run: `tsc --strict` clean, 18 unit tests green on the Node built-in runner, and 22 assertions driving the rendered form in a jsdom harness (date first, no budget field, no auto-open, digits-only link, contact rule, reference escape, copy fallback, both number-unset paths). Nothing was installed in the repo. Still not run inside Framer, which is what P-17, P-18 and S-2 are for. Added F-9, F-10, D-9, P-21 and Q11, Q12: all referenced by docs/DESIGN.md but missing from this file | P-11, P-12, P-13, P-14 partial, P-19 partial, F-9, F-10, D-9, P-21 | shared/whatsapp.ts, shared/whatsapp.test.ts, framer/EnquiryForm.tsx, framer/README.md, content/copy.md, content/PLACEHOLDERS.md, ROADMAP.md, PROJECT_STRUCTURE.md |
 | 2026-10-10 | Agent (Antigravity) | Added missing documents from unzipped folder and DESIGN.md | none | docs/DESIGN.md, pitch/Alpha_Movies_Proposal.pptx, docs/research/reference-site-notes.md, docs/research/boy-concept-brief.md, .github/CODEOWNERS, ROADMAP.md, PROJECT_STRUCTURE.md |
 | 2026-10-10 | Agent (Antigravity) | Created content skeletons | F-8 | content/PLACEHOLDERS.md, content/verification-log.md, content/copy.md, ROADMAP.md |
