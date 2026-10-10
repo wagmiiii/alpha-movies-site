@@ -101,5 +101,41 @@ The brand name in the greeting is open item Q12 in DESIGN.md section 2.
 - **Q:**
 - **A:**
 
+## Privacy notice (page)
+
+Drafted against the ten items the Act requires of a controller, listed in
+`docs/research/ndpa-2023-notes.md` section 4. No lawyer has read it and L-4 stays open until one
+does. Every bracket is a client fact or an open decision, and none of it publishes until the
+notice is signed off.
+
+- **Page title:** Privacy notice
+- **Intro:** You sent us a brief, we use it to answer you, and you can ask us to delete it whenever you like. Nothing here is written to be hard to find.
+- **Who we are:** Alpha Movies Ltd, registered in Nigeria, RC `[RC number]`. We work out of `[Base City]`. `[Confirm the trading name]` if the business trades under another name.
+- **Why we have your details:** You sent us a brief. We use it to answer you and to quote for the job. Not for anything else, and not for marketing unless you say yes to that separately.
+- **The lawful reason:** We are answering an enquiry you started. Where we need your permission we ask for it, and you can take it back at any time.
+- **What we collect:** The fields on the booking form, in the order the form asks them. Event dates, project type, venue, city and country, how long you need us, what you want delivered, an optional reference link, your name, your WhatsApp number, your email if you give one, and your notes. We do not ask what your budget is.
+- **What happens when you press send:** The brief is handed to us on WhatsApp. This preview page stores nothing and sends no email.
+- **Who else touches it:** Framer hosts this site and holds what is on it. `[Phase 1 processor list]` That line is written after gate G1, once we know which tools hold an enquiry and what each one does with it.
+- **Where your details are held:** Some of the tools that run this site keep data outside Nigeria. `[Cross-border basis]` The ground we rely on comes from task L-8.
+- **How long we keep it:** An enquiry that did not turn into a job is deleted within `[Retention period]`. A booked job keeps what the job needs and what the accounts need. Ask us and we delete it sooner.
+- **Your rights:** You can ask to see what we hold, correct it, delete it, stop us using it, or have a copy. Say which one and we do it.
+- **Who to ask:** `[Data request contact]`. We answer a data request within `[Days to answer a data request]`.
+- **If you are not satisfied:** You can complain to the Nigeria Data Protection Commission, ndpc.gov.ng.
+- **Children:** Under 18, a parent or guardian agrees first.
+- **Changes:** We may update this page. Last updated `[Last updated]`.
+
+### Cookie notice
+
+A tracker does not run until the visitor says yes. The banner shows on load and gives Accept and
+Reject as equal choices. It does not go in the page footer, where it can be ignored. See
+`docs/research/ndpa-2023-notes.md` section 3.
+
+- **Heading:** Cookies and tracking
+- **Body:** We use a small amount of tracking to see which films and pages people open. You can say no. The site works either way.
+- **Accept:** Accept tracking
+- **Reject:** No thanks
+- **Link:** Privacy notice
+
 ## Footer
 - **Copyright:** © 2026 Alpha Movies Ltd
+- **Privacy:** Privacy notice

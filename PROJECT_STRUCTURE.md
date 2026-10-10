@@ -65,6 +65,7 @@ Markers: (exists) is a real file today, (F-6) means created by that ROADMAP task
 │   │   └── framer-capability-spike.md (S-5) results of the Framer checks
 │   └── research/                      inputs that are NOT verified
 │       ├── boy-concept-brief.md       (F-6) the original research brief, labeled unverified
+│       ├── ndpa-2023-notes.md         (L-4) data protection duties read from the 2025 directive; not a lawyer's opinion
 │       └── reference-site-notes.md    (F-6) notes on directorengineer.framer.media
 │
 ├── pitch/
@@ -135,6 +136,7 @@ Today the delivered files are flat. Task F-6 places them as shown.
 | docs/ARCHITECTURE_ESSENTIALS.md | Agent outline | exists | ARCHITECTURE.md changes a rule, endpoint or data name |
 | docs/spikes/framer-capability-spike.md | Results of the Framer checks | S-5 | Spike results change |
 | docs/research/* | Unverified inputs, kept for reference | F-6 | Rarely. Never promote content from here without a verification-log entry |
+| docs/research/ndpa-2023-notes.md | Data protection duties read from the regulator's own 2025 directive, the two places it contradicts this repo's docs, and the seven decisions that still need a professional read | L-4 | The directive changes, or a lawyer answers its section 13. Nothing in here is fact until then |
 | pitch/* | Material for the pitch | D | The pitch changes |
 | pitch/emmanuel-question-sheet.md | The client's answers, asked in the order that unblocks the most work, plus the per-video permission table | D-10 | A question is answered, or a new one is discovered |
 | content/copy.md | Source for all site text | F-8 | Copy changes. Edit here first, then Framer |
@@ -159,6 +161,7 @@ Today the delivered files are flat. Task F-6 places them as shown.
 | Draft CMS rows for the Phase 0 preview | content/demo-dataset.md | the Framer CMS only after that file's section 8, which is task C-11 |
 | Owner WhatsApp number | Framer SiteSettings and the Worker variable `OWNER_WHATSAPP_DIGITS` | Two places by design. Change both. Listed in the handover checklist |
 | Hard rules | docs/ARCHITECTURE_ESSENTIALS.md | AGENTS.md lists the most-broken ones and points here |
+| Data protection duties | the ROADMAP L-4 to L-9 tasks, with docs/PRD.md section 9 as the requirement line | `docs/research/ndpa-2023-notes.md` is the reading behind them and is an input, not a fact base. Nothing from it becomes site copy or a compliance claim until a professional read answers its section 13 |
 | Decisions | docs/ARCHITECTURE.md decision log | ESSENTIALS where it is a rule |
 | Visual values (color, type, spacing) | docs/DESIGN.md sections 3, 4, 5 | the token copy inside `framer/EnquiryForm.tsx`, and nowhere else. PRD section 10 states intent only (decision D12) |
 | Secrets | Worker environment variables, `.dev.vars` locally (gitignored) | nowhere else, ever |
@@ -190,6 +193,7 @@ Newest first.
 
 | Date | Who | Change | Task |
 |---|---|---|---|
+| 2026-10-10 | Agent (Qoder) | Added `docs/research/ndpa-2023-notes.md` to the tree and the file table, plus one Where-does-X-live row so no future agent reads that note as a fact base: a data protection reading that produced five new Must tasks and two doc conflicts, one of them against ARCHITECTURE section 8, which was left untouched because a data model change is ask-first. No folder was created | L-4 |
 | 2026-10-10 | Agent (Qoder) | Recorded who owns a visual value: a Where-does-X-live row and a Known duplication bullet for the token copy inside `framer/EnquiryForm.tsx`, which that file already claimed was listed here but was not. No file was added, moved or renamed | F-9 |
 | 2026-10-10 | Agent (Qoder) | Corrected three text runs inside `pitch/Alpha_Movies_Proposal.pptx` (slides 4 and 6) so unverified client facts read as to-confirm, and wrote down how to edit that deck, since the office engine can read but not save it | D-3, Q13 |
 | 2026-10-10 | Agent (Qoder) | Added `content/demo-dataset.md` (draft CMS rows, all client facts bracketed) and `pitch/emmanuel-question-sheet.md`. Fixed the tree, which listed no `docs/DESIGN.md` even though that file exists and the file table already carried it | P-22, D-10 |

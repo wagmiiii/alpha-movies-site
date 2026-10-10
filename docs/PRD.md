@@ -50,6 +50,7 @@ In v1:
 - Credibility: credentials section with a verification gate.
 - Enquiry: date-first form with a WhatsApp handoff. Storage and owner email arrive in Phase 1 (section 11).
 - Rollout: Instagram bio link, DM saved reply and a direct path for existing clients. Without these the site changes nothing (FR-25).
+- Privacy: a notice page reachable from the home page, and a cookie choice before any tracker runs. Section 9 makes this a duty, and ROADMAP L-4, L-6 and P-24 carry the work.
 
 Parked, each with a trigger:
 
@@ -181,7 +182,7 @@ Phase 0 has no ref. The Ref line is omitted when there is none.
 - Mobile first. Most visitors arrive from Instagram on phones over mobile data.
 - Performance: LCP 2.5s or better on 4G. No autoplaying video iframes. Poster-first everywhere.
 - Accessibility: WCAG AA contrast on the dark theme, keyboard-operable form, labels on all fields.
-- Privacy: collect only the form fields above. Consent recorded. Align with the Nigeria Data Protection Act 2023. [verify obligations]
+- Privacy: collect only the form fields above. Consent recorded. Align with the Nigeria Data Protection Act 2023. The obligations are researched in `docs/research/ndpa-2023-notes.md` (that file is a research note, never read as fact, and has not had a professional read). Open duties: cookie and tracking consent before analytics fires (ROADMAP L-6), the retention period in ARCHITECTURE section 8 against the 2025 directive's six-month default (L-7), the processor inventory (L-8), and whether the business crosses the controller-of-major-importance thresholds (L-9, blocked on Q14). The notice and consent copy are drafted in `content/copy.md` and build as P-24
 - Resilience: if the API is down, the form falls back to a direct WhatsApp link with the brief in the message. A backend failure must never lose a lead.
 - Browsers: latest two versions of Chrome, Safari, Samsung Internet and Firefox.
 
