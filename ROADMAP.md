@@ -235,6 +235,7 @@ Newest first. One line per PR or work session.
 
 | Date | Who | What | Tasks | Files |
 |---|---|---|---|---|
+| 2026-10-10 | Agent (Antigravity) | Added missing documents from unzipped folder and DESIGN.md | none | docs/DESIGN.md, pitch/Alpha_Movies_Proposal.pptx, docs/research/reference-site-notes.md, docs/research/boy-concept-brief.md, .github/CODEOWNERS, ROADMAP.md, PROJECT_STRUCTURE.md |
 | 2026-10-10 | Agent (Antigravity) | Created content skeletons | F-8 | content/PLACEHOLDERS.md, content/verification-log.md, content/copy.md, ROADMAP.md |
 | 2026-10-10 | Agent (Antigravity) | Added PR template and CI check for ROADMAP.md | F-7 | .github/pull_request_template.md, .github/workflows/ci.yml, ROADMAP.md |
 | 2026-10-10 | Agent (Antigravity) | Scaffolded folders per PROJECT_STRUCTURE.md, moved docs, added README.md and .gitignore | F-6 | ROADMAP.md, README.md, .gitignore |
