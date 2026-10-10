@@ -231,7 +231,7 @@ Deploy with `wrangler deploy --env <name>`. Publishing the Framer site is manual
 6. Resend sending-domain verification for the client domain, and Gmail inbox placement.
 7. `wa.me` links on iOS, Android and inside Instagram's browser. Keep the encoded message under about 1000 characters.
 8. Workers rate limiting binding availability and behaviour.
-9. NDPA 2023 obligations for names, phone numbers and email addresses.
+9. NDPA 2023 obligations for names, phone numbers and email addresses. Read against the regulator's own 2025 implementation directive and written up in `docs/research/ndpa-2023-notes.md` (ROADMAP L-4). That note is not verified by a lawyer, so this item is not closed, and it found two open conflicts with this file: the retention periods in section 8 (task L-7) and the absence of any cookie consent step for the GA4 choice in section 3 (task L-6).
 
 ## 14. Stress test (technical)
 

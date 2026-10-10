@@ -31,8 +31,9 @@ Part 1 is in order of what unblocks the most work. Do Part 1 first even if there
 | 13 | Q6 | Roughly how many enquiries come in a week, and how many are just asking the price? | Tells us whether the form needs more questions or fewer | PRD section 4 targets, X-1 |
 | 14 | Q9 | Will you and your team change the Instagram bio link and the saved DM replies once the site is live? | If nobody will, the rollout kit is decoration and FR-25 does not happen | R-1, R-9, FR-25 |
 | 15 | Q2, Q5 | How fast will you genuinely reply to a brief? Same day? Within 24 hours? | The response-time promise. We only print a number you will keep | C-7, FR-15 |
+| 16 | Q14 | Two numbers. About how many clients and enquiries do you hold records for, including everything on your phone and laptop? And of the films you would put on the site, how many are at a church, mosque, festival or family ceremony where someone's faith or ethnicity shows? | This decides whether the business is a "data controller of major importance" under the Act. Over that line, registering with the Commission, naming a data protection officer and filing an annual audit become duties. The sensitive-data line is 200 people, the general one is 1,000 in six months | L-9, L-4, the privacy notice in `content/copy.md` |
 
-The Q column is the row in the Open questions tracker in `ROADMAP.md`. Q13 is new: it came out of auditing the deck on 2026-10-10, which found three client facts asserted there without a source.
+The Q column is the row in the Open questions tracker in `ROADMAP.md`. Q13 is new: it came out of auditing the deck on 2026-10-10, which found three client facts asserted there without a source. Q14 is new the same day and comes from reading the Commission's 2025 directive, in `docs/research/ndpa-2023-notes.md`.
 
 ## Part 2: one line per video
 
@@ -111,5 +112,6 @@ Do not send Part 2 or Part 3 as a wall of text. Part 2 works better as a voice n
 | Q11 logo current and vector | `docs/DESIGN.md` section 2, and `assets/brand/` once F-10 puts the files in the repo (they are measured by DESIGN but not committed) | D-9, C-1, P-21 |
 | Q12 Alpha Movies or Boy Concept | The greeting string in `shared/whatsapp.ts` and its copy in `framer/EnquiryForm.tsx` in the same change, `content/copy.md` hero, page titles | D-9, L-3 |
 | Q13 registered name, former name, handles | `pitch/Alpha_Movies_Proposal.pptx` slide 4, `content/demo-dataset.md` SiteSettings, then the footer | D-3, C-1, L-3 |
+| Q14 records held, and what kind of footage | Which tier the business sits in under the Act, then the privacy notice in `content/copy.md` and the owner's side of it in the owner guide (R-2, that file is in `PROJECT_STRUCTURE.md` but `/ops` does not exist yet) | L-9, L-4 |
 
 If Q10's answer is "some accounts are in your name", that is a launch blocker, not a detail. ARCHITECTURE decision D10 says every account is held by the client.
