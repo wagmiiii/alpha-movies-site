@@ -4,7 +4,7 @@ Where everything lives and why. Read this before creating, moving or deleting a 
 
 | | |
 |---|---|
-| Last updated | 2026-10-06 |
+| Last updated | 2026-10-10 |
 | Structure version | 0.1 |
 | Status | Planned layout. Only the files marked "exists" are real today. Everything else is created when its ROADMAP task is started |
 
@@ -76,12 +76,12 @@ Markers: (exists) is a real file today, (F-6) means created by that ROADMAP task
 │   └── verification-log.md            (F-8) claim, source, date, who verified
 │
 ├── framer/
-│   ├── README.md                      (P) how components are pasted into Framer, sync notes
-│   └── EnquiryForm.tsx                (P-12) the only custom Framer component
+│   ├── README.md                      (exists) how components are pasted into Framer, sync notes
+│   └── EnquiryForm.tsx                (exists, P-12) the only custom Framer component
 │
 ├── shared/
-│   ├── whatsapp.ts                    (P-11) message and wa.me URL builders, pure functions
-│   └── whatsapp.test.ts               (P-11)
+│   ├── whatsapp.ts                    (exists, P-11) message and wa.me URL builders, pure functions
+│   └── whatsapp.test.ts               (exists, P-11) run with `node --test shared/whatsapp.test.ts`
 │
 ├── worker/                            (1*) created only after gate G1 chooses a Worker
 │   ├── package.json
@@ -136,8 +136,10 @@ Today the delivered files are flat. Task F-6 places them as shown.
 | content/copy.md | Source for all site text | F-8 | Copy changes. Edit here first, then Framer |
 | content/PLACEHOLDERS.md | Every `[bracketed]` placeholder: where it is, who owns it, status | F-8 | A placeholder is added or resolved |
 | content/verification-log.md | Evidence for every shown credential or stat | F-8 | A fact is verified or withdrawn |
+| framer/README.md | How to paste components into Framer, what the owner must set, what is deliberately absent | P-12 | The component changes or a Framer limitation is discovered |
 | framer/EnquiryForm.tsx | Enquiry form component | P-12 | Form behavior changes |
 | shared/whatsapp.ts | WhatsApp message and URL builders | P-11 | The message format changes |
+| shared/whatsapp.test.ts | Unit tests for the builders, ESSENTIALS rule 4 and the length cap | P-11 | The builders change. Run with `node --test shared/whatsapp.test.ts`, no install needed |
 | worker/** | Enquiry API | 1* | Per ARCHITECTURE.md |
 | ops/* | Checklists, guides and test logs | R | Process or results change |
 
@@ -170,6 +172,8 @@ Today the delivered files are flat. Task F-6 places them as shown.
 - `/content` is the only place where unverified claims may exist, and they must be bracketed.
 - `/docs/research` is never read as fact by an agent.
 - Do not commit: secrets, `.dev.vars`, `node_modules`, build output, Framer exports, personal data from real enquiries.
+- `docs/DESIGN.md` section 2 quotes measurements for `assets/brand/alpha-movies-logo-original.png` and `assets/brand/alpha-movies-logo.webp`. Neither the folder nor the files exist in this repo, and `assets/` is not in the tree above. Do not create it and do not repeat those measurements as fact until task F-10 adds the files here.
+- There is no build tooling in this repo. `shared/whatsapp.test.ts` runs on Node 23 or newer with `node --test`, which strips the types itself. Do not add a package.json, a test runner or a linter without first deciding it in `ARCHITECTURE.md`, because AGENTS.md requires asking before adding a dependency.
 
 ## Structure change log
 
@@ -177,4 +181,5 @@ Newest first.
 
 | Date | Who | Change | Task |
 |---|---|---|---|
+| 2026-10-10 | Agent (Qoder) | First real code in the repo: `shared/whatsapp.ts` and its test, `framer/EnquiryForm.tsx` and `framer/README.md` moved from planned to exists. Added the rule that there is no build tooling, and flagged that the `assets/brand` files DESIGN.md measures are absent | P-11, P-12, P-13, F-10 |
 | 2026-10-06 | Agent (Claude) | Initial structure defined | F-5 |

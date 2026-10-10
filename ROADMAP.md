@@ -4,11 +4,12 @@ Single source of truth for project status and for the path to 100% readiness.
 
 | | |
 |---|---|
-| Last updated | 2026-10-06 |
-| Current phase | Foundations (F), moving to Discovery (D) and the Framer spike (S) |
-| Readiness | 14% (9 of 63 Must tasks done) |
+| Last updated | 2026-10-10 |
+| Current phase | Phase 0 build (P). Foundations F is complete. The form code is written; the pages around it, the spike and all of Phase 1 are not |
+| Readiness | 19% (12 of 64 Must tasks done) |
 | Gates passed | none |
 | Backend decision (G1) | not yet made. Worker tasks (B) are excluded from the score until G1 chooses a Worker |
+| Critical path now | D-5 then G0. Nothing in C, L, B or R can start until Emmanuel answers Q1, and the S spike needs a Framer account |
 
 ## Update rule (mandatory, applies to humans and agents)
 
@@ -36,16 +37,16 @@ Recalculate on every update.
 
 | Section | Must done | Should done | Conditional |
 |---|---|---|---|
-| F Foundations | 8 of 8 | 0 of 0 | n/a |
-| D Discovery and pitch | 1 of 7 | 1 of 1 | n/a |
+| F Foundations | 8 of 8 | 0 of 2 | n/a |
+| D Discovery and pitch | 1 of 8 | 1 of 1 | n/a |
 | S Framer capability spike | 0 of 5 | 0 of 0 | n/a |
-| P Phase 0 | 0 of 18 | 0 of 2 | n/a |
+| P Phase 0 | 3 of 18 | 0 of 3 | n/a |
 | C Phase 1 | 0 of 11 | 0 of 0 | n/a |
 | L Phase 1 | 0 of 4 | 0 of 1 | n/a |
 | B Phase 1 (conditional) | n/a | n/a | 0 of 16 |
 | R Phase 1 | 0 of 10 | 0 of 0 | n/a |
 | X Post-launch | not counted | not counted | n/a |
-| **Total counted** | **9 of 63** | **1 of 4** | |
+| **Total counted** | **12 of 64** | **1 of 7** | |
 
 ## Gates
 
@@ -60,6 +61,7 @@ Recalculate on every update.
 ## Critical path and schedule risks
 
 - The longest delays are the client-dependent C tasks, mainly C-2, C-3 and C-5. Start asking at D-5, not after launch of the demo [Likely].
+- The Phase 0 form code (P-11 to P-13) is written, typechecked and exercised in a DOM, but has never run inside Framer. P-17, P-18 and S-2 are the checks that can still fail it, and they need a Framer account and two phones [Certain that they need those, Likely that they will pass].
 - G1 decides whether 16 backend tasks exist. Run the S tasks early. If native forms are enough, most of the backend work disappears.
 - Phase 1 cannot start before G0. If Emmanuel declines or already has a site (Q1), re-scope the whole roadmap.
 - Verified content is the credibility layer, which is the strongest part of the pitch. A thin content set is a schedule risk and a product risk.
@@ -81,6 +83,8 @@ Priority: M is Must, S is Should, C is conditional on G1. Refs point to requirem
 | [x] | F-6 | Create the repo, scaffold folders per PROJECT_STRUCTURE.md, move docs into /docs, add README.md and .gitignore | Ademola | S | F-5 | none | M |
 | [x] | F-7 | Add PR template and a CI check that fails any PR not touching ROADMAP.md | Ademola | S | F-6 | none | M |
 | [x] | F-8 | Create skeletons for content/PLACEHOLDERS.md, content/verification-log.md and content/copy.md | Agent | S | F-6 | none | M |
+| [ ] | F-9 | Reconcile the page background: PRD section 10 says #0A0A0A, docs/DESIGN.md section 1 says #000000 and claims to replace it. One of them must change | Agent | S | none | ESSENTIALS rule on doc precedence | S |
+| [ ] | F-10 | The logo files DESIGN.md section 2 measures (`assets/brand/*`) are not in the repo, and `assets/` is not in PROJECT_STRUCTURE.md. Add both, or correct the measured claims | Ademola | S | none | DESIGN 2 | S |
 
 ### D. Discovery and pitch
 
@@ -94,6 +98,7 @@ Priority: M is Must, S is Should, C is conditional on G1. Refs point to requirem
 | [ ] | D-6 | Write the pitch message and walkthrough script, calling out the date-first form | Ademola | S | D-3 | none | M |
 | [ ] | D-7 | Send the pitch with the preview link and walkthrough | Ademola | S | D-6, P-20 | none | M |
 | [ ] | D-8 | Record Emmanuel's answers to the open questions in this file | Ademola | S | D-7 | PRD section 12 | M |
+| [ ] | D-9 | Confirm the supplied logo is the current official one, get a vector or flat file, and decide whether Alpha Movies or Boy Concept leads publicly | Ademola, Emmanuel | S | none | DESIGN 2, Q11, Q12 | M |
 
 ### S. Framer capability spike
 
@@ -119,16 +124,17 @@ Priority: M is Must, S is Should, C is conditional on G1. Refs point to requirem
 | [ ] | P-8 | CMS Credential collection and credentials section with the hide rule | Ademola | M | P-2 | FR-6, FR-7, FR-26 | M |
 | [ ] | P-9 | Services, process and FAQ in the page, from content/copy.md | Ademola | S | F-8, P-2 | FR-19 | S |
 | [ ] | P-10 | SiteSettings (WhatsApp digits, from-price text, response text, base city, links) and footer | Ademola | S | P-2 | FR-20 | M |
-| [ ] | P-11 | shared/whatsapp.ts: message builder and wa.me URL builder, digits only, with unit tests | Agent | S | F-6 | FR-12, ESSENTIALS rule 4 | M |
-| [ ] | P-12 | EnquiryForm.tsx: fields per PRD section 7, native validation, clientRequestId, local message build, confirmation screen with visible button and copy fallback | Agent | L | P-11 | FR-8, FR-11, FR-12, FR-13 | M |
-| [ ] | P-13 | Form rules: date window and short-notice flag, second date, country-aware phone input, WhatsApp-or-email rule, reference-video escape | Agent | M | P-12 | PRD 7 | M |
-| [ ] | P-14 | From-price line and response-time copy bound to SiteSettings | Agent | S | P-10, P-12 | FR-10, FR-15 | M |
+| [x] | P-11 | shared/whatsapp.ts: message builder and wa.me URL builder, digits only, with unit tests | Agent | S | F-6 | FR-12, ESSENTIALS rule 4 | M |
+| [x] | P-12 | EnquiryForm.tsx: fields per PRD section 7, native validation, clientRequestId, local message build, confirmation screen with visible button and copy fallback | Agent | L | P-11 | FR-8, FR-11, FR-12, FR-13 | M |
+| [x] | P-13 | Form rules: date window and short-notice flag, second date, country-aware phone input, WhatsApp-or-email rule, reference-video escape | Agent | M | P-12 | PRD 7 | M |
+| [~] | P-14 | From-price line and response-time copy bound to SiteSettings | Agent | S | P-10, P-12 | FR-10, FR-15 | M |
 | [ ] | P-15 | Direct WhatsApp link that works without JavaScript | Ademola | S | P-10 | FR-24 | M |
 | [ ] | P-16 | GA4 events: form_submit and whatsapp_tap | Ademola | S | P-12 | FR-21 | S |
 | [ ] | P-17 | Mobile pass: LCP on throttled 4G, contrast and keyboard checks, no autoplay iframes | Ademola | M | P-3 to P-15 | PRD 9 | M |
 | [ ] | P-18 | Handoff test matrix: iOS Safari, Android Chrome, Instagram in-app on both; log in ops/test-matrix.md | Ademola | M | P-12, S-2 | ARCH 11 | M |
-| [ ] | P-19 | Placeholder register complete; every demo placeholder is bracketed | Agent | S | P-5, P-8 | PRD 8 | M |
+| [~] | P-19 | Placeholder register complete; every demo placeholder is bracketed | Agent | S | P-5, P-8 | PRD 8 | M |
 | [ ] | P-20 | Publish the preview link (not the production domain) | Ademola | S | P-17, P-18, P-19 | none | M |
+| [ ] | P-21 | Flat one-color wordmark, favicon mark and a 1200 x 630 social image | Ademola, Agent | S | C-1, DESIGN 2 | FR-20, L-3 | S |
 
 ### G. Gates
 
@@ -221,6 +227,8 @@ Fill the Answer column as soon as Emmanuel responds, then update the PRD if an a
 | Q8 | Which clients allow public showing, and are tracks cleared for YouTube | open | |
 | Q9 | Will he and his team change the Instagram bio and DM replies | open | |
 | Q10 | Domain ownership, brand colors, and who holds each service account | open | |
+| Q11 | Is the logo in the repo the current one, and is there a vector or flat version | open | |
+| Q12 | Which name leads publicly, Alpha Movies or Boy Concept. The greeting in the WhatsApp brief depends on it | open | |
 
 ## Blockers
 
@@ -235,6 +243,7 @@ Newest first. One line per PR or work session.
 
 | Date | Who | What | Tasks | Files |
 |---|---|---|---|---|
+| 2026-10-10 | Agent (Qoder) | Phase 0 form code. WhatsApp message and wa.me builders with 18 unit tests, EnquiryForm with the PRD section 7 fields plus the P-13 rules, and Framer handoff notes. Checks run: `tsc --strict` clean, 18 unit tests green on the Node built-in runner, and 22 assertions driving the rendered form in a jsdom harness (date first, no budget field, no auto-open, digits-only link, contact rule, reference escape, copy fallback, both number-unset paths). Nothing was installed in the repo. Still not run inside Framer, which is what P-17, P-18 and S-2 are for. Added F-9, F-10, D-9, P-21 and Q11, Q12: all referenced by docs/DESIGN.md but missing from this file | P-11, P-12, P-13, P-14 partial, P-19 partial, F-9, F-10, D-9, P-21 | shared/whatsapp.ts, shared/whatsapp.test.ts, framer/EnquiryForm.tsx, framer/README.md, content/copy.md, content/PLACEHOLDERS.md, ROADMAP.md, PROJECT_STRUCTURE.md |
 | 2026-10-10 | Agent (Antigravity) | Added missing documents from unzipped folder and DESIGN.md | none | docs/DESIGN.md, pitch/Alpha_Movies_Proposal.pptx, docs/research/reference-site-notes.md, docs/research/boy-concept-brief.md, .github/CODEOWNERS, ROADMAP.md, PROJECT_STRUCTURE.md |
 | 2026-10-10 | Agent (Antigravity) | Created content skeletons | F-8 | content/PLACEHOLDERS.md, content/verification-log.md, content/copy.md, ROADMAP.md |
 | 2026-10-10 | Agent (Antigravity) | Added PR template and CI check for ROADMAP.md | F-7 | .github/pull_request_template.md, .github/workflows/ci.yml, ROADMAP.md |
