@@ -6,7 +6,7 @@ Single source of truth for project status and for the path to 100% readiness.
 |---|---|
 | Last updated | 2026-10-06 |
 | Current phase | Foundations (F), moving to Discovery (D) and the Framer spike (S) |
-| Readiness | 12% (8 of 63 Must tasks done) |
+| Readiness | 14% (9 of 63 Must tasks done) |
 | Gates passed | none |
 | Backend decision (G1) | not yet made. Worker tasks (B) are excluded from the score until G1 chooses a Worker |
 
@@ -36,7 +36,7 @@ Recalculate on every update.
 
 | Section | Must done | Should done | Conditional |
 |---|---|---|---|
-| F Foundations | 7 of 8 | 0 of 0 | n/a |
+| F Foundations | 8 of 8 | 0 of 0 | n/a |
 | D Discovery and pitch | 1 of 7 | 1 of 1 | n/a |
 | S Framer capability spike | 0 of 5 | 0 of 0 | n/a |
 | P Phase 0 | 0 of 18 | 0 of 2 | n/a |
@@ -45,7 +45,7 @@ Recalculate on every update.
 | B Phase 1 (conditional) | n/a | n/a | 0 of 16 |
 | R Phase 1 | 0 of 10 | 0 of 0 | n/a |
 | X Post-launch | not counted | not counted | n/a |
-| **Total counted** | **8 of 63** | **1 of 4** | |
+| **Total counted** | **9 of 63** | **1 of 4** | |
 
 ## Gates
 
@@ -80,7 +80,7 @@ Priority: M is Must, S is Should, C is conditional on G1. Refs point to requirem
 | [x] | F-5 | ROADMAP.md and PROJECT_STRUCTURE.md written; contribution protocol added to every instruction file and doc | Agent | M | F-4 | none | M |
 | [x] | F-6 | Create the repo, scaffold folders per PROJECT_STRUCTURE.md, move docs into /docs, add README.md and .gitignore | Ademola | S | F-5 | none | M |
 | [x] | F-7 | Add PR template and a CI check that fails any PR not touching ROADMAP.md | Ademola | S | F-6 | none | M |
-| [ ] | F-8 | Create skeletons for content/PLACEHOLDERS.md, content/verification-log.md and content/copy.md | Agent | S | F-6 | none | M |
+| [x] | F-8 | Create skeletons for content/PLACEHOLDERS.md, content/verification-log.md and content/copy.md | Agent | S | F-6 | none | M |
 
 ### D. Discovery and pitch
 
@@ -235,6 +235,7 @@ Newest first. One line per PR or work session.
 
 | Date | Who | What | Tasks | Files |
 |---|---|---|---|---|
+| 2026-10-10 | Agent (Antigravity) | Created content skeletons | F-8 | content/PLACEHOLDERS.md, content/verification-log.md, content/copy.md, ROADMAP.md |
 | 2026-10-10 | Agent (Antigravity) | Added PR template and CI check for ROADMAP.md | F-7 | .github/pull_request_template.md, .github/workflows/ci.yml, ROADMAP.md |
 | 2026-10-10 | Agent (Antigravity) | Scaffolded folders per PROJECT_STRUCTURE.md, moved docs, added README.md and .gitignore | F-6 | ROADMAP.md, README.md, .gitignore |
 | 2026-10-06 | Agent (Claude) | Created ROADMAP.md and PROJECT_STRUCTURE.md. Added the contribution protocol to AGENTS.md, CLAUDE.md, PRD, ARCHITECTURE and ESSENTIALS. Replaced the manual phase line in AGENTS.md with this file | F-5 | ROADMAP.md, PROJECT_STRUCTURE.md, AGENTS.md, CLAUDE.md, PRD.md, ARCHITECTURE.md, ARCHITECTURE_ESSENTIALS.md |
