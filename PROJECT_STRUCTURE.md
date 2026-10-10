@@ -48,10 +48,12 @@ Markers: (exists) is a real file today, (F-6) means created by that ROADMAP task
 ├── CLAUDE.md                          (exists) Claude Code additions, imports AGENTS.md
 ├── ROADMAP.md                         (exists) status, tasks, gates, progress log. Updated on every contribution
 ├── PROJECT_STRUCTURE.md               (exists) this file
+├── repo-setup.sh                      (F-6) creates the GitHub repo and turns on branch protection for the `roadmap-and-structure` check. See the note below: its own header says it belongs outside the repo, and it is committed
 ├── .gitignore                         (F-6)
 ├── .dev.vars.example                  (1*) names of Worker variables, no values
 │
 ├── .github/
+│   ├── CODEOWNERS                     (exists) everything routes to the builder account; it was committed without ever being registered here, and the `roadmap-and-structure` check is what actually gates a PR
 │   ├── pull_request_template.md       (F-7) checklist including the ROADMAP update
 │   └── workflows/
 │       └── ci.yml                     (F-7) fails a PR that does not touch ROADMAP.md; (B-16) adds lint, typecheck, test
@@ -112,6 +114,7 @@ Markers: (exists) is a real file today, (F-6) means created by that ROADMAP task
 │       └── schema.test.ts
 │
 └── ops/
+    ├── framer-setup-checklist.md      (S-0, D13) Framer account, plan, CMS and component setup, and the move to the client's account
     ├── launch-checklist.md            (R-6)
     ├── handover-checklist.md          (R-10)
     ├── owner-guide.md                 (R-2)
@@ -119,7 +122,7 @@ Markers: (exists) is a real file today, (F-6) means created by that ROADMAP task
     └── test-matrix.md                 (P-18, R-3) device and browser results
 ```
 
-Today the delivered files are flat. Task F-6 places them as shown.
+The tree above is the layout as of 2026-10-10, not a plan: F-6 placed every folder, and the files still marked with a task ID are the ones that task has not written yet. Missing on purpose: `/worker` and `.dev.vars.example` (conditional on gate G1), and four of the five `/ops` files (R and P tasks). `docs/spikes/` and `assets/brand/` are listed here but not on disk; S-5 writes the first and F-10 the second.
 
 ## File table
 
@@ -130,6 +133,8 @@ Today the delivered files are flat. Task F-6 places them as shown.
 | CLAUDE.md | Claude Code specifics | exists | Claude Code workflow changes |
 | ROADMAP.md | Status and progress log | exists | Every contribution |
 | PROJECT_STRUCTURE.md | This map | exists | A file or folder is added, moved, renamed, deleted or repurposed |
+| .github/CODEOWNERS | Review request routing | exists | The people who must review change. It gates nothing on its own, the `roadmap-and-structure` check in ci.yml does |
+| repo-setup.sh | One-time setup of the GitHub repo and the `roadmap-and-structure` branch protection | F-6 | Rarely. It is kept in the repo for the record even though its own header says to run it from outside the folder |
 | docs/DESIGN.md | Design system tokens and styles | exists | A style token changes |
 | docs/PRD.md | Product requirements | exists | A requirement, scope item or open question changes |
 | docs/ARCHITECTURE.md | Design and decision log | exists | A technical decision changes |
@@ -149,6 +154,7 @@ Today the delivered files are flat. Task F-6 places them as shown.
 | shared/whatsapp.test.ts | Unit tests for the builders, ESSENTIALS rule 4 and the length cap | P-11 | The builders change. Run with `node --test shared/whatsapp.test.ts`, no install needed |
 | worker/** | Enquiry API | 1* | Per ARCHITECTURE.md |
 | ops/* | Checklists, guides and test logs | R | Process or results change |
+| ops/framer-setup-checklist.md | Framer account, plan, CMS and component setup, and the move into the client's account at launch | S-0 | A CMS field name changes (ARCHITECTURE 5 wins), a Framer plan limit is confirmed differently, or a setup step proves wrong in the real account |
 
 ## Where does X live
 
@@ -163,6 +169,7 @@ Today the delivered files are flat. Task F-6 places them as shown.
 | Hard rules | docs/ARCHITECTURE_ESSENTIALS.md | AGENTS.md lists the most-broken ones and points here |
 | Data protection duties | the ROADMAP L-4 to L-9 tasks, with docs/PRD.md section 9 as the requirement line | `docs/research/ndpa-2023-notes.md` is the reading behind them and is an input, not a fact base. Nothing from it becomes site copy or a compliance claim until a professional read answers its section 13 |
 | Decisions | docs/ARCHITECTURE.md decision log | ESSENTIALS where it is a rule |
+| Framer account and plan | docs/ARCHITECTURE.md decision D13 | `ops/framer-setup-checklist.md` section 4 carries the observed plan limits because the setup steps depend on them; Framer's own pricing page outranks both |
 | Visual values (color, type, spacing) | docs/DESIGN.md sections 3, 4, 5 | the token copy inside `framer/EnquiryForm.tsx`, and nowhere else. PRD section 10 states intent only (decision D12) |
 | Secrets | Worker environment variables, `.dev.vars` locally (gitignored) | nowhere else, ever |
 | Enquiries | Airtable (Phase 1 backend) | email to owner |
@@ -193,6 +200,7 @@ Newest first.
 
 | Date | Who | Change | Task |
 |---|---|---|---|
+| 2026-10-10 | Agent (Qoder) | Created the `/ops` folder on disk with `ops/framer-setup-checklist.md`, the first file under it, so decision D13 (Free sandbox now, Pro at launch, because this site needs 3 CMS collections and Basic holds 2) has an executable setup path and a named five-step move into the client's account. Registered the file in the tree, the file table and one new Where-does-X-live row. Also registered two files that exist and were missing from this map: `repo-setup.sh`, whose own header says it belongs outside the repo even though it is committed, and `.github/CODEOWNERS`; left both in place rather than delete them, since deletion is ask-first | S-0, D13 |
 | 2026-10-10 | Agent (Qoder) | Added `docs/research/ndpa-2023-notes.md` to the tree and the file table, plus one Where-does-X-live row so no future agent reads that note as a fact base: a data protection reading that produced five new Must tasks and two doc conflicts, one of them against ARCHITECTURE section 8, which was left untouched because a data model change is ask-first. No folder was created | L-4 |
 | 2026-10-10 | Agent (Qoder) | Recorded who owns a visual value: a Where-does-X-live row and a Known duplication bullet for the token copy inside `framer/EnquiryForm.tsx`, which that file already claimed was listed here but was not. No file was added, moved or renamed | F-9 |
 | 2026-10-10 | Agent (Qoder) | Corrected three text runs inside `pitch/Alpha_Movies_Proposal.pptx` (slides 4 and 6) so unverified client facts read as to-confirm, and wrote down how to edit that deck, since the office engine can read but not save it | D-3, Q13 |
