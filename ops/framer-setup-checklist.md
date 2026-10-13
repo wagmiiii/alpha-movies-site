@@ -6,8 +6,9 @@
 | Decision it follows | ARCHITECTURE decision D13: build now in a builder-owned project on the Free plan, copy into the client's project before go-live (L-1), upgrade to Pro at launch |
 | Tasks it serves | S-0 (this file's sections 1 to 3), then S-1 to S-5, then P-1 to P-15 |
 | Written | 2026-10-10, after the pricing page was read directly |
+| Updated | 2026-10-13: section 1 ticked against what the 2026-10-10 read-back actually proved, the project name settled, the CMS creation method written down, and one section 9 line corrected that still claimed the subscription was unasked |
 | Not verified here | Whether code components are limited by plan, the free domain suffix, and how a project moves between accounts. Sections 8 and 9 keep those open instead of guessing |
-| Progress | Section 2 is done except the demo rows, verified by reading the CMS back out of the account on 2026-10-10. Sections 1 and 3 are open, and what section 2 taught us is written as decision D14 in ARCHITECTURE |
+| Progress | Section 1 is part done (the account and the one project exist; the name, the workspace note and the plan confirmation are open). Section 2 is done except the demo rows and the four dataset answers, verified by reading the CMS back out of the account on 2026-10-10. Section 3 is open. What section 2 taught us is decision D14 in ARCHITECTURE |
 
 ## 0. The shape, so nobody has to re-decide it
 
@@ -19,7 +20,10 @@ The reason the two-account shape is allowed at all: the spike can change the des
 
 ## 1. Account, today (S-0)
 
-- [ ] Sign up at framer.com with the email you want attached to this work for the next months. Do not add a card.
+- [x] Signed up, no card added. Done on or before 2026-10-10, which is when the CMS in that account
+  was first read back. The reason the box said "the email you want attached to this work" is that
+  the login email becomes the owner's email at L-1 (decision D10), so if the account is on an email
+  nobody intends to hand over, say so now rather than at launch.
 - [ ] Name the project **Boy Concept**. That is the name a visitor sees in the browser tab and in
   the Framer share preview. Whether it also becomes part of the free Framer address is one of the
   S-4 checks, so do not assume it. It does not rename this repository: `alpha-movies-site` stays,
@@ -31,8 +35,11 @@ The reason the two-account shape is allowed at all: the spike can change the des
   open the spike results (S-5). The project name is settled by the row above; the workspace name is
   whatever the account made. If a future agent cannot tell which project is the real one, that is a
   defect.
-- [ ] Create **one project** for this site. One, not a copy per page.
-- [ ] Do not connect a domain. Do not publish. See section 7. The wish for "boy concept" in the
+- [x] **One project** exists for this site, not a copy per page. Observed on 2026-10-10 when the
+  four collections and their fields were read back out of it.
+- [ ] Do not connect a domain. Do not publish. See section 7. Not re-checked: the 2026-10-10
+  read-back covered the CMS, not the domain or visibility settings. Look at both once in project
+  settings and tick this only after you have looked. The wish for "boy concept" in the
   address people type is asked of Emmanuel at Q10 in `pitch/emmanuel-question-sheet.md`, and what
   the free Framer address actually looks like is one of the S-4 checks, so neither half of it is
   settled here.
@@ -71,6 +78,15 @@ built, because Framer cannot hold multiple values in an Enum (decision D14):
 - [ ] Read `content/demo-dataset.md` section 9 and answer its four open items while you are in
   the CMS: the demo-row render rule (P-23), the DEMO badge placement, the YouTube path at
   section 7, and the sparkle glyph approval.
+
+**How those boxes got ticked, if anyone has to do it again** (2026-10-10, Certain because we hit all
+of it): this account would not take hand-typed field definitions, so the collections were built
+through Framer's own AI agent. Three things mattered. Tell it to finish every step in one run,
+because the first run created the four collection shells and skipped almost every field. Tell it to
+leave an existing field unchanged rather than substitute its own idea of a better type. And make it
+read the schema back at the end, because the read-back is the only reason we noticed the gaps, and
+that read-back is what decision D14 is written from. Trust the read-back, not the agent's summary of
+what it did.
 
 Three field types are deliberate and a future agent must not "fix" them (D14): `video_url`,
 `instagram_url` and `youtube_url` are Text so a `[bracket]` survives, `whatsapp_number_digits`
@@ -148,5 +164,7 @@ The two places the WhatsApp number must match at handover: SiteSettings and the 
 - Does a paid plan gate code components. Framer's pricing page names no code-component limit either way [Certain: the page is silent. Guessing: therefore they are not gated. S-1 and S-4 settle it by observation, not by reading].
 - The free domain suffix (ARCHITECTURE Verify 4). The reference site used `framer.media`; your account may differ.
 - Whether password protection is available on Free. Worth knowing, because a pitch preview that anyone with the link can find is a different exposure from one that is also indexed.
-- Who pays the $30 a month at launch. That is a client cost, so it belongs with Q10 in `pitch/emmanuel-question-sheet.md`. Not asked there yet, and it should be before L-1.
+- Who pays the $30 a month at launch, and whose name goes in the address. Both are asked now: row
+  12 of `pitch/emmanuel-question-sheet.md` carries the subscription and the card, and the same row
+  asks which name the URL should say. What is still open is the answer, which is D-5's job.
 - Whether a second project (P-23's other branch) fits the plan limits, or whether Free counts collections and items across the account rather than per project. The pricing page does not say [Not verified. S-4 observes it by creating the second project and reading what the account reports].
