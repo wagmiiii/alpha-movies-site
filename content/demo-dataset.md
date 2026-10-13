@@ -52,7 +52,9 @@ Eight rows, two per FR-3 category. The categories themselves are not placeholder
 | `demo-documentary-1` | `[Project title]` | Documentaries | `[Subject or commissioner]` | | `[Year]` | `[Location]` | `[Video URL]` | (empty) | false | `[Deliverables]` | `[One sentence]` | false | false | 7 |
 | `demo-documentary-2` | `[Project title]` | Documentaries | `[Subject or commissioner]` | | `[Year]` | `[Location]` | `[Video URL]` | (empty) | false | `[Deliverables]` | `[One sentence]` | false | false | 8 |
 
-`deliverables` values come from the enum in ARCHITECTURE section 5: highlight_reel, full_film, same_day_edit, drone, social_cuts, other.
+`deliverables` values come from the `Deliverable` collection (ARCHITECTURE section 5, decision D14): highlight_reel, full_film, same_day_edit, drone, social_cuts, other. `deliverables` on a Project is a Reference to it and allows multiple.
+
+**Leave the `deliverables` column empty in the CMS.** A Reference field cannot hold `[Deliverables]`, so that token marks the intent in this file and is not something to type into Framer. It is the one column in the table above whose bracket stays here rather than becoming a field value.
 
 Two rows per category so the filter, the grid and the empty-category rule (FR-26) are all testable. Eight is not a content bar. C-9 still has to agree the real minimum.
 
