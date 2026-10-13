@@ -67,6 +67,7 @@ Markers: (exists) is a real file today, (F-6) means created by that ROADMAP task
 │   │   └── framer-capability-spike.md (S-5) results of the Framer checks
 │   └── research/                      inputs that are NOT verified
 │       ├── boy-concept-brief.md       (F-6) the original research brief, labeled unverified
+│       ├── hosting-alternatives-vercel-supabase.md (G1 input) the Vercel and Supabase comparison, with prices and dates
 │       ├── ndpa-2023-notes.md         (L-4) data protection duties read from the 2025 directive; not a lawyer's opinion
 │       └── reference-site-notes.md    (F-6) notes on directorengineer.framer.media
 │
@@ -141,6 +142,7 @@ The tree above is the layout as of 2026-10-10, not a plan: F-6 placed every fold
 | docs/ARCHITECTURE_ESSENTIALS.md | Agent outline | exists | ARCHITECTURE.md changes a rule, endpoint or data name |
 | docs/spikes/framer-capability-spike.md | Results of the Framer checks | S-5 | Spike results change |
 | docs/research/* | Unverified inputs, kept for reference | F-6 | Rarely. Never promote content from here without a verification-log entry |
+| docs/research/hosting-alternatives-vercel-supabase.md | The Vercel plus Supabase question, answered with prices read on 2026-10-13 and kept as an input to gate G1. Not a decision and not a fact base | G1 input | When a price moves or S-4 finds a hard Framer limit. If the answer ever changes, the change goes in the ARCHITECTURE decision log, not here |
 | docs/research/ndpa-2023-notes.md | Data protection duties read from the regulator's own 2025 directive, the two places it contradicts this repo's docs, and the seven decisions that still need a professional read | L-4 | The directive changes, or a lawyer answers its section 13. Nothing in here is fact until then |
 | pitch/* | Material for the pitch | D | The pitch changes |
 | pitch/emmanuel-question-sheet.md | The client's answers, asked in the order that unblocks the most work, plus the per-video permission table | D-10 | A question is answered, or a new one is discovered |
@@ -170,6 +172,8 @@ The tree above is the layout as of 2026-10-10, not a plan: F-6 placed every fold
 | Data protection duties | the ROADMAP L-4 to L-9 tasks, with docs/PRD.md section 9 as the requirement line | `docs/research/ndpa-2023-notes.md` is the reading behind them and is an input, not a fact base. Nothing from it becomes site copy or a compliance claim until a professional read answers its section 13 |
 | Decisions | docs/ARCHITECTURE.md decision log | ESSENTIALS where it is a rule |
 | Framer account and plan | docs/ARCHITECTURE.md decision D13 | `ops/framer-setup-checklist.md` section 4 carries the observed plan limits because the setup steps depend on them; Framer's own pricing page outranks both |
+| Is Framer the right host at all | docs/ARCHITECTURE.md section 3, the Rejected column, and decision D13 | `docs/research/hosting-alternatives-vercel-supabase.md` is the working behind those lines with prices read on 2026-10-13. It is an input to gate G1, not a reopening of D13, and its numbers go stale on purpose |
+| The Framer project name | `ops/framer-setup-checklist.md` section 1 | Not the repository name. `alpha-movies-site` stays, and the public naming question is Q12 with Q10's address half in `pitch/emmanuel-question-sheet.md` |
 | Visual values (color, type, spacing) | docs/DESIGN.md sections 3, 4, 5 | the token copy inside `framer/EnquiryForm.tsx`, and nowhere else. PRD section 10 states intent only (decision D12) |
 | Secrets | Worker environment variables, `.dev.vars` locally (gitignored) | nowhere else, ever |
 | Enquiries | Airtable (Phase 1 backend) | email to owner |
@@ -200,6 +204,7 @@ Newest first.
 
 | Date | Who | Change | Task |
 |---|---|---|---|
+| 2026-10-13 | Agent (Qoder) | Added one file, `docs/research/hosting-alternatives-vercel-supabase.md`, and registered it in the tree, the file table and two new Where-does-X-live rows (the second one fixes a gap: the Framer **project name** had no source of truth, and section 1 of the setup checklist now owns it). No folder created, nothing moved, nothing deleted | S-0, G1 input |
 | 2026-10-10 | Agent (Qoder) | Created the `/ops` folder on disk with `ops/framer-setup-checklist.md`, the first file under it, so decision D13 (Free sandbox now, Pro at launch, because this site needs 3 CMS collections and Basic holds 2) has an executable setup path and a named five-step move into the client's account. Registered the file in the tree, the file table and one new Where-does-X-live row. Also registered two files that exist and were missing from this map: `repo-setup.sh`, whose own header says it belongs outside the repo even though it is committed, and `.github/CODEOWNERS`; left both in place rather than delete them, since deletion is ask-first | S-0, D13 |
 | 2026-10-10 | Agent (Qoder) | Added `docs/research/ndpa-2023-notes.md` to the tree and the file table, plus one Where-does-X-live row so no future agent reads that note as a fact base: a data protection reading that produced five new Must tasks and two doc conflicts, one of them against ARCHITECTURE section 8, which was left untouched because a data model change is ask-first. No folder was created | L-4 |
 | 2026-10-10 | Agent (Qoder) | Recorded who owns a visual value: a Where-does-X-live row and a Known duplication bullet for the token copy inside `framer/EnquiryForm.tsx`, which that file already claimed was listed here but was not. No file was added, moved or renamed | F-9 |

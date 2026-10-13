@@ -219,7 +219,7 @@ Task-level status for every phase is in `ROADMAP.md`.
 | Q7 | Do his best videos exist as source files, or only on Instagram | FR-2, FR-4 | Emmanuel |
 | Q8 | Which clients allow public showing, and are tracks cleared for YouTube | FR-27 | Emmanuel |
 | Q9 | Will he and his team change the Instagram bio and DM replies | FR-25 | Emmanuel |
-| Q10 | Domain ownership, brand colors, and who holds each service account | Launch, handover | Emmanuel |
+| Q10 | Domain ownership, which name goes in the address people type, brand colors, and who holds each service account. The naming half is the same decision as Q12, so it cannot stay a detail | Launch, handover | Emmanuel |
 
 ## 13. Stress test (product level)
 

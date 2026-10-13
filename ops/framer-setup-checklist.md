@@ -20,9 +20,22 @@ The reason the two-account shape is allowed at all: the spike can change the des
 ## 1. Account, today (S-0)
 
 - [ ] Sign up at framer.com with the email you want attached to this work for the next months. Do not add a card.
-- [ ] Note the workspace name and the project name you create, and write both into the Progress log line in `ROADMAP.md` when you open the spike results (S-5). If a future agent cannot tell which project is the real one, that is a defect.
+- [ ] Name the project **Boy Concept**. That is the name a visitor sees in the browser tab and in
+  the Framer share preview. Whether it also becomes part of the free Framer address is one of the
+  S-4 checks, so do not assume it. It does not rename this repository: `alpha-movies-site` stays,
+  because the folder holds the docs, the content and the Phase 1 Worker plan as well as the site,
+  and ROADMAP and PROJECT_STRUCTURE paths are written against it. If the project already exists
+  under another name, rename it in the project settings rather than creating a second one, because
+  S-0 is one project.
+- [ ] Note the workspace name, and write it into the Progress log line in `ROADMAP.md` when you
+  open the spike results (S-5). The project name is settled by the row above; the workspace name is
+  whatever the account made. If a future agent cannot tell which project is the real one, that is a
+  defect.
 - [ ] Create **one project** for this site. One, not a copy per page.
-- [ ] Do not connect a domain. Do not publish. See section 7.
+- [ ] Do not connect a domain. Do not publish. See section 7. The wish for "boy concept" in the
+  address people type is asked of Emmanuel at Q10 in `pitch/emmanuel-question-sheet.md`, and what
+  the free Framer address actually looks like is one of the S-4 checks, so neither half of it is
+  settled here.
 - [ ] Confirm the plan you landed on really is Free, and screenshot the limits page for this project into the spike file. The free-tier numbers below came from Framer's pricing page on 2026-10-10 and Framer changes them.
 
 ## 2. CMS collections (S-0, and it is P-5 and P-8 first)
