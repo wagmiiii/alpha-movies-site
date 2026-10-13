@@ -54,7 +54,16 @@ Eight rows, two per FR-3 category. The categories themselves are not placeholder
 
 `deliverables` values come from the `Deliverable` collection (ARCHITECTURE section 5, decision D14): highlight_reel, full_film, same_day_edit, drone, social_cuts, other. `deliverables` on a Project is a Reference to it and allows multiple.
 
-**Leave the `deliverables` column empty in the CMS.** A Reference field cannot hold `[Deliverables]`, so that token marks the intent in this file and is not something to type into Framer. It is the one column in the table above whose bracket stays here rather than becoming a field value.
+### What does not go into Framer
+
+Three columns in the table above cannot hold their own bracket, because of the field type the account ended up with (decision D14). They are the columns whose bracket stays in this file and does not become a field value:
+
+- `year` is a **Number** field. Leave it empty on every demo row. Framer rejects text in it, so
+  `[Year]` is untypeable. The real years arrive with C-1.
+- `deliverables` is a **Reference** field. Leave it empty on every demo row. If you need the reference binding tested, pick `other` on one row, which tests the link without claiming anything was delivered.
+- `poster_image` is an **Image** field. See "Posters" below; it stays empty too.
+
+Everything else in a row goes in as written, including `[Video URL]`, because `video_url` is a Text field and not a Link field.
 
 Two rows per category so the filter, the grid and the empty-category rule (FR-26) are all testable. Eight is not a content bar. C-9 still has to agree the real minimum.
 
@@ -72,7 +81,7 @@ For the layout, an empty poster renders as a 16:9 `--surface-2` block with the s
 
 ## 5. Credential rows
 
-Fields per ARCHITECTURE section 5. Type label values are the four DESIGN section 7 eyebrows: Registration, Equipment, Collaboration, Press.
+Fields per ARCHITECTURE section 5. `type` in the account is an Enum whose stored values are lowercase: `registration`, `equipment`, `collaboration`, `press` (decision D14, and Framer Enums are case sensitive). The words in the table below are the four DESIGN section 7 display labels, so pick the matching option from the dropdown rather than typing one.
 
 | type | label | value | source | verified |
 |---|---|---|---|---|

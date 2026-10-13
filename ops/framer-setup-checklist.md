@@ -44,8 +44,12 @@ built, because Framer cannot hold multiple values in an Enum (decision D14):
   (Commercial, Cultural Festivals, Weddings, Documentaries). `Credential.type` set to
   registration, equipment, collaboration, press. Enum values are case sensitive.
 - [ ] Paste the eight `demo-*` rows from `content/demo-dataset.md` section 4 and the credential
-  rows from its section 5. Leave every bracket as a bracket, and keep `verified` and `publish_ok`
-  **false** on all of them, which is what makes rule 8 hold while the demo content is in there.
+  rows from its section 5, and keep `verified` and `publish_ok` **false** on all of them, which is
+  what makes rule 8 hold while the demo content is in there. Type every bracket in as written
+  **except** the three columns listed under "What does not go into Framer" in that section: `year`
+  is a Number field, `deliverables` is a Reference and `poster_image` is an Image, so none of them
+  can hold a bracket and each stays empty. On the credential rows pick `type` from the dropdown
+  (the stored values are lowercase) rather than typing the display label.
   Not done as of 2026-10-10: Project and Credential both report 0 items.
 - [x] One empty row exists in `SiteSettings`, and `whatsapp_number_digits` is **empty** in it.
   With it empty the form shows the copyable-brief fallback instead of an Open WhatsApp button
@@ -60,7 +64,10 @@ Three field types are deliberate and a future agent must not "fix" them (D14): `
 is Text so nobody can lose a leading digit or type a plus, and `summary` is Text rather than
 Rich Text so the card cannot inherit formatting DESIGN does not own. `deliverables` is a
 Reference to `Deliverable`, multi-select, left **empty** on every demo row, because a Reference
-field cannot hold a bracket.
+field cannot hold a bracket, and `year` is empty for the same reason: it is a Number field, so
+`[Year]` does not type in. Both are paste traps rather than mistakes. Framer rejects the bracket
+instead of storing it, so those two fields stay empty and the rest of the row is still correct.
+See "What does not go into Framer" in `content/demo-dataset.md` section 4.
 
 ## 3. Component
 
