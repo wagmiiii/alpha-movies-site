@@ -58,8 +58,9 @@ Eight rows, two per FR-3 category. The categories themselves are not placeholder
 
 Three columns in the table above cannot hold their own bracket, because of the field type the account ended up with (decision D14). They are the columns whose bracket stays in this file and does not become a field value:
 
-- `year` is a **Number** field. Leave it empty on every demo row. Framer rejects text in it, so
-  `[Year]` is untypeable. The real years arrive with C-1.
+- `year` is a **Number** field. Leave it empty on every demo row. A Number field has nowhere to
+  put `[Year]`, and it will not take the bracket as text; `PLACEHOLDERS.md` already registers it
+  as one of the three tokens that never enter Framer. The real years arrive with C-1.
 - `deliverables` is a **Reference** field. Leave it empty on every demo row. If you need the reference binding tested, pick `other` on one row, which tests the link without claiming anything was delivered.
 - `poster_image` is an **Image** field. See "Posters" below; it stays empty too.
 

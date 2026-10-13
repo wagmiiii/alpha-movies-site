@@ -65,8 +65,9 @@ is Text so nobody can lose a leading digit or type a plus, and `summary` is Text
 Rich Text so the card cannot inherit formatting DESIGN does not own. `deliverables` is a
 Reference to `Deliverable`, multi-select, left **empty** on every demo row, because a Reference
 field cannot hold a bracket, and `year` is empty for the same reason: it is a Number field, so
-`[Year]` does not type in. Both are paste traps rather than mistakes. Framer rejects the bracket
-instead of storing it, so those two fields stay empty and the rest of the row is still correct.
+`[Year]` does not type in. Both are paste traps rather than mistakes. A Number or Reference field
+has nowhere to put a bracket, so those two fields stay empty and the rest of the row is still
+correct.
 See "What does not go into Framer" in `content/demo-dataset.md` section 4.
 
 ## 3. Component
