@@ -7,6 +7,7 @@
 | Tasks it serves | S-0 (this file's sections 1 to 3), then S-1 to S-5, then P-1 to P-15 |
 | Written | 2026-10-10, after the pricing page was read directly |
 | Not verified here | Whether code components are limited by plan, the free domain suffix, and how a project moves between accounts. Sections 8 and 9 keep those open instead of guessing |
+| Progress | Section 2 is done except the demo rows, verified by reading the CMS back out of the account on 2026-10-10. Sections 1 and 3 are open, and what section 2 taught us is written as decision D14 in ARCHITECTURE |
 
 ## 0. The shape, so nobody has to re-decide it
 
@@ -26,17 +27,40 @@ The reason the two-account shape is allowed at all: the spike can change the des
 
 ## 2. CMS collections (S-0, and it is P-5 and P-8 first)
 
-Three collections, no more:
+Four collections, no more. The count went from three to four when the real project was
+built, because Framer cannot hold multiple values in an Enum (decision D14):
 
 1. `Project`
 2. `Credential`
-3. `SiteSettings` (a single-entry collection, one row only)
+3. `SiteSettings` (one row by convention; Framer cannot enforce it)
+4. `Deliverable` (holds the six deliverable keys as items)
 
-- [ ] Create each one with the field names in `docs/ARCHITECTURE.md` section 5, **verbatim**, including `verified` and `publish_ok` on Project and `source` on Credential. That table is the source of truth for the field list; this file deliberately does not copy it, because a second list drifts.
-- [ ] Set the category enum to the four values used in `content/demo-dataset.md` section 4 (Commercial, Cultural Festivals, Weddings, Documentaries).
-- [ ] Paste the eight `demo-*` rows from `content/demo-dataset.md` section 4 and the credential rows from its section 5. Leave every bracket as a bracket, and keep `verified` and `publish_ok` **false** on all of them, which is what makes rule 8 hold while the demo content is in there.
-- [ ] Leave `whatsapp_number_digits` in SiteSettings **empty**. With it empty the form shows the copyable-brief fallback instead of an Open WhatsApp button that goes nowhere, and that fallback is the thing we want visible in the preview.
-- [ ] Read `content/demo-dataset.md` section 9 and answer its two open items while you are in the CMS: the demo-row render rule (that is P-23) and the sparkle glyph approval.
+- [x] Created all four with the field names in `docs/ARCHITECTURE.md` section 5, verbatim,
+  including `verified` and `publish_ok` on Project and `source` on Credential. Read back from
+  the account on 2026-10-10: Project 15 fields, Credential 5, SiteSettings 6, Deliverable 6
+  items. `slug` is Framer's built-in rather than a field, and `title` is a real field because
+  Project has no built-in Name.
+- [x] `category` set to the four values used in `content/demo-dataset.md` section 4
+  (Commercial, Cultural Festivals, Weddings, Documentaries). `Credential.type` set to
+  registration, equipment, collaboration, press. Enum values are case sensitive.
+- [ ] Paste the eight `demo-*` rows from `content/demo-dataset.md` section 4 and the credential
+  rows from its section 5. Leave every bracket as a bracket, and keep `verified` and `publish_ok`
+  **false** on all of them, which is what makes rule 8 hold while the demo content is in there.
+  Not done as of 2026-10-10: Project and Credential both report 0 items.
+- [x] One empty row exists in `SiteSettings`, and `whatsapp_number_digits` is **empty** in it.
+  With it empty the form shows the copyable-brief fallback instead of an Open WhatsApp button
+  that goes nowhere, and that fallback is the thing we want visible in the preview. Add no
+  second row, ever, because nothing stops you.
+- [ ] Read `content/demo-dataset.md` section 9 and answer its four open items while you are in
+  the CMS: the demo-row render rule (P-23), the DEMO badge placement, the YouTube path at
+  section 7, and the sparkle glyph approval.
+
+Three field types are deliberate and a future agent must not "fix" them (D14): `video_url`,
+`instagram_url` and `youtube_url` are Text so a `[bracket]` survives, `whatsapp_number_digits`
+is Text so nobody can lose a leading digit or type a plus, and `summary` is Text rather than
+Rich Text so the card cannot inherit formatting DESIGN does not own. `deliverables` is a
+Reference to `Deliverable`, multi-select, left **empty** on every demo row, because a Reference
+field cannot hold a bracket.
 
 ## 3. Component
 
@@ -55,7 +79,7 @@ Read from framer.com/pricing on 2026-10-10 [Certain that the page says this toda
 | Basic | $10/mo | **2** | 2,500 | yes |
 | Pro | $30/mo | 10 | up to 40,000 | yes, plus a staging environment |
 
-- This site needs **3** collections (ARCHITECTURE section 5). **Basic caps at 2**, so Basic cannot hold this site without deleting a collection. That is the trap: the cheap plan with a custom domain is the one plan that does not fit.
+- This site needs **4** collections (ARCHITECTURE section 5, decision D14). **Basic caps at 2**, so Basic is short by two and cannot hold this site. That is the trap: the cheap plan with a custom domain is the one plan that does not fit.
 - Free gives 10 collections, 1,000 items and up to 3 editors, which covers all of Phase 0 except a custom domain, and Phase 0 does not want a custom domain (P-20 is the preview link).
 - So: **Free now, Pro at launch.** Pro also brings a staging environment, which is what you want if P-23 ends up being a second project for demo rows rather than a filter.
 - Free has a 5 MB file upload limit. Posters only, because video comes from YouTube by URL (`video_url`), so this constrains poster image size, not the films. Check the real behaviour when you upload the first poster and write the number into the spike file.

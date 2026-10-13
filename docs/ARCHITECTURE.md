@@ -25,7 +25,7 @@ Everything below describes the Phase 1 backend. Do not build it for Phase 0.
 Visitor (mobile, often inside the Instagram in-app browser)
    |
    v
-Framer site: static pages, CMS (Project, Credential, SiteSettings)
+Framer site: static pages, CMS (Project, Credential, SiteSettings, Deliverable)
    |  POST /api/enquiries
    v
 Cloudflare Worker (Hono, Zod)
@@ -73,9 +73,21 @@ Validation lives on the server in Zod. The client uses native HTML validation on
 
 | Collection | Fields |
 |---|---|
-| Project | slug, title, category (enum), client_name, event_name, year, location, video_url, poster_image, hero_reel (bool), deliverables (tags), summary, publish_ok (bool, client permission), verified (bool), sort_order |
-| Credential | type (registration, equipment, collaboration, press), label, value, source (text), verified (bool) |
+| Project | slug, title, category (enum), client_name, event_name, year, location, video_url, poster_image, hero_reel (bool), deliverables (Reference to Deliverable, multiple), summary, publish_ok (bool, client permission), verified (bool), sort_order |
+| Credential | type (enum: registration, equipment, collaboration, press), label, value, source (text), verified (bool) |
 | SiteSettings (single) | whatsapp_number_digits, from_price_text, response_time_text, base_city, instagram_url, youtube_url |
+| Deliverable | key (the six values below, held as items) |
+
+The six `deliverables` keys: highlight_reel, full_film, same_day_edit, drone, social_cuts, other.
+
+### What Framer actually allows (observed in the real project on 2026-10-10, decision D14)
+
+- Four collections, not three. `deliverables` is a Reference to a `Deliverable` collection holding those six keys, because a Framer Enum cannot hold multiple values on one item.
+- Every collection carries a system `id` and a built-in `slug`. `slug` in the table above is that built-in, not a field to create.
+- `title` is a real Text field, because Framer gave `Project` no built-in Name field. The CMS list therefore shows the slug until a title exists.
+- `video_url`, `instagram_url`, `youtube_url` and `whatsapp_number_digits` are **Text**, not Link and not Number. They must hold either a `[bracket]` or digits with no plus and no leading zeros, and a typed field would reject or mangle both.
+- `SiteSettings` is one row by convention. Framer cannot enforce a single-row limit, so the owner guide (R-2) has to say so.
+- A Framer Enum cannot be multi-value, and its values are case sensitive as written here.
 
 Render rules: a Project shows only if `verified` and `publish_ok` are both true. A Credential shows only if `verified` is true. A category chip with zero shown projects is hidden. The credentials section is hidden while it has fewer than [N] shown items.
 
@@ -226,7 +238,7 @@ Deploy with `wrangler deploy --env <name>`. Publishing the Framer site is manual
 
 1. Framer code components can call an external API and render the Turnstile widget in the Framer runtime, in preview and in the Instagram in-app browser. Blocks the design. Test first.
 2. Whether Framer's native form handling already meets FR-12, FR-14 and FR-18. If yes, skip the Worker.
-3. The Framer plan supports CMS and custom code at the limits needed. Read from Framer's own pricing page on 2026-10-10: Free gives 10 collections and 1,000 items but publishes only on a free Framer domain, Basic gives **2** collections where this site needs 3, Pro gives 10 collections, up to 40,000 items and a staging environment. That is why decision D13 launches on Pro. The page says nothing about whether code components are gated by plan, so S-1 and S-4 have to observe it rather than assume it.
+3. The Framer plan supports CMS and custom code at the limits needed. Read from Framer's own pricing page on 2026-10-10: Free gives 10 collections and 1,000 items but publishes only on a free Framer domain, Basic gives **2** collections where this site needs 4, Pro gives 10 collections, up to 40,000 items and a staging environment. That is why decision D13 launches on Pro. The page says nothing about whether code components are gated by plan, so S-1 and S-4 have to observe it rather than assume it. The collection count went from 3 to 4 when D14 landed, which widens the gap against Basic rather than closing it.
 4. The free Framer domain suffix on this account (the reference site used `framer.media`).
 5. Airtable free-tier record and request limits against expected volume, and that it has no unique-field constraint.
 6. Resend sending-domain verification for the client domain, and Gmail inbox placement.
@@ -305,7 +317,8 @@ What stays because it earns its place: the verification gate, the handoff fallba
 | D10 | Every account is held by the client | 2026-10-06 |
 | D11 | Every contribution updates ROADMAP.md, and PROJECT_STRUCTURE.md when files change. CI enforces the ROADMAP part | 2026-10-06 |
 | D12 | DESIGN.md is the single source for visual values. PRD section 10 states intent only and repeats no token, so the background no longer has two owners (F-9) | 2026-10-10 |
-| D13 | Framer: build the spike and Phase 0 in a builder-owned project on the Free plan, then move it into the client's project before go-live. D10 and L-1 are not weakened: the builder project is a sandbox, never the shipped site. The launch plan is Pro, not Basic, because this site needs 3 CMS collections and Framer's Basic tier holds 2. Setup and move steps in `ops/framer-setup-checklist.md` | 2026-10-10 |
+| D13 | Framer: build the spike and Phase 0 in a builder-owned project on the Free plan, then move it into the client's project before go-live. D10 and L-1 are not weakened: the builder project is a sandbox, never the shipped site. The launch plan is Pro, not Basic, because this site needs 4 CMS collections and Framer's Basic tier holds 2. Setup and move steps in `ops/framer-setup-checklist.md` | 2026-10-10 |
+| D14 | The CMS as built, recorded from the real project rather than assumed: 4 collections. `deliverables` is a Reference to a new `Deliverable` collection holding the six keys, because a Framer Enum cannot take multiple values. `slug` is Framer's built-in and `title` is a real Text field, because Project has no built-in Name. The URL and digits fields are Text, not Link or Number, so a `[bracket]` and a digits-only number both survive. `SiteSettings` is one row by convention, and Framer cannot enforce that | 2026-10-10 |
 
 ## 16. Contribution protocol
 
